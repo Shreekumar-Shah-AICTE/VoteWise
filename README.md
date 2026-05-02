@@ -9,7 +9,7 @@
 [![Gemini AI](https://img.shields.io/badge/Gemini_AI-Powered-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
 [![Google Maps](https://img.shields.io/badge/Google_Maps-Integrated-34A853?style=for-the-badge&logo=googlemaps&logoColor=white)](https://developers.google.com/maps)
 [![Cloud Run](https://img.shields.io/badge/Cloud_Run-Deployed-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)](https://cloud.google.com/run)
-[![Tests](https://img.shields.io/badge/Tests-52_Passing-22C55E?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev/)
+[![Tests](https://img.shields.io/badge/Tests-72_Passing-22C55E?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev/)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
 **Your interactive guide to understanding India's democratic election process — learn, quiz yourself, and experience mock voting.**
@@ -176,7 +176,7 @@ User types question
 | **Maps** | Google Maps JavaScript API | Polling station geospatial visualization |
 | **Translation** | Google Cloud Translation API | Multi-language support (8 Indian languages) |
 | **Validation** | Zod | Runtime input validation and type inference |
-| **Testing** | Vitest + Testing Library | 52 unit tests across 3 test suites |
+| **Testing** | Vitest + Testing Library | 72 unit tests across 5 test suites |
 | **Linting** | ESLint + Prettier | Consistent code style enforcement |
 | **Deployment** | Google Cloud Run | Containerized, auto-scaling serverless deployment |
 | **Container** | Docker (multi-stage) | Optimized production image (~150MB) |
@@ -218,25 +218,29 @@ VoteWise integrates **4 Google Cloud services** to deliver a comprehensive elect
 
 ## 🧪 Testing
 
-VoteWise includes a comprehensive test suite to ensure reliability and correctness:
+VoteWise includes a comprehensive test suite with **72 passing tests** across **5 test suites**:
 
 ```
- ✓ src/__tests__/utils.test.ts        (24 tests) — Utility functions
+ ✓ src/__tests__/utils.test.ts        (25 tests) — Utility functions
  ✓ src/__tests__/validation.test.ts   (14 tests) — Input validation schemas
- ✓ src/__tests__/data.test.ts         (14 tests) — Data integrity checks
+ ✓ src/__tests__/data.test.ts         (13 tests) — Data integrity checks
+ ✓ src/__tests__/languages.test.ts    (11 tests) — Language configuration
+ ✓ src/__tests__/gemini.test.ts       ( 9 tests) — AI system instruction
 
- Test Files:  3 passed (3)
- Tests:       52 passed (52)
- Duration:    4.46s
+ Test Files:  5 passed (5)
+ Tests:       72 passed (72)
+ Duration:    5.16s
 ```
 
 ### Test Categories
 
 | Suite | Tests | Coverage |
 |:------|:-----:|:---------|
-| **Utility Functions** | 24 | `generateId`, `sanitizeInput`, `clamp`, `formatPercentage`, `shuffleArray`, `timeAgo`, `getDifficultyColor` |
+| **Utility Functions** | 25 | `generateId`, `sanitizeInput`, `clamp`, `formatPercentage`, `shuffleArray`, `timeAgo`, `getDifficultyColor` |
 | **Input Validation** | 14 | Chat message schema, translation request schema, quiz answer schema — including XSS prevention and boundary testing |
-| **Data Integrity** | 14 | Election steps completeness, quiz question validity, candidate data consistency, NOTA inclusion |
+| **Data Integrity** | 13 | Election steps completeness, quiz question validity, candidate data consistency, NOTA inclusion |
+| **Language Config** | 11 | Supported languages, native names, language lookup, code validation |
+| **AI Configuration** | 9 | System instruction guardrails, non-partisanship rules, ECI knowledge coverage |
 
 ### Running Tests
 
@@ -422,7 +426,7 @@ docker run -p 8080:8080 -e NEXT_PUBLIC_GEMINI_API_KEY=your_key votewise
 | **Scope** | Basic chatbot | 6 interactive tools in one platform |
 | **Interactivity** | Text Q&A only | EVM simulator, quiz with badges, readiness assessment |
 | **Google Services** | 1 (Gemini only) | 4 (Gemini + Maps + Translate + Cloud Run) |
-| **Testing** | None | 52 passing tests across 3 test suites |
+| **Testing** | None | 72 passing tests across 5 test suites |
 | **Security** | Minimal | CSP headers, rate limiting, Zod validation, XSS sanitization |
 | **Accessibility** | Not considered | Full WCAG 2.1 AA with ARIA, keyboard nav, skip-nav |
 | **Code Quality** | JavaScript, no types | TypeScript strict mode, ESLint, Prettier, JSDoc |
