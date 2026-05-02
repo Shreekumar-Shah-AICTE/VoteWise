@@ -1,0 +1,143 @@
+/**
+ * Global CSS for VoteWise
+ * Defines the design system with India tricolor accents on dark mode
+ *
+ * Design: Dark election-night aesthetic with saffron, white, green accents
+ */
+
+@import "tailwindcss";
+
+/* Custom CSS variables for the VoteWise design system */
+:root {
+  /* India tricolor palette */
+  --saffron: #ff9933;
+  --white-accent: #ffffff;
+  --green-india: #138808;
+
+  /* Primary brand colors */
+  --primary: #6366f1;
+  --primary-light: #818cf8;
+  --primary-dark: #4f46e5;
+
+  /* Dark mode surface colors */
+  --surface-0: #030712;
+  --surface-1: #0f1729;
+  --surface-2: #1e293b;
+  --surface-3: #334155;
+
+  /* Text colors */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+}
+
+/* Base styles */
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  background: var(--surface-0);
+  color: var(--text-primary);
+}
+
+/* A11y: Ensure focus indicators are always visible */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for dark mode */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Animation utilities */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px 4px rgba(99, 102, 241, 0.2);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Glassmorphism card utility */
+.glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(99, 102, 241, 0.1);
+  border-radius: 16px;
+}
+
+/* India tricolor gradient */
+.tricolor-gradient {
+  background: linear-gradient(
+    135deg,
+    var(--saffron) 0%,
+    var(--white-accent) 50%,
+    var(--green-india) 100%
+  );
+}
+
+/* Tricolor border accent */
+.tricolor-border {
+  border-image: linear-gradient(
+      to right,
+      var(--saffron),
+      var(--white-accent),
+      var(--green-india)
+    )
+    1;
+}
