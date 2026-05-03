@@ -12,10 +12,7 @@ import path from "path";
 
 /** Helper to read a source file */
 function readSourceFile(filePath: string): string {
-  return fs.readFileSync(
-    path.join(process.cwd(), "src", filePath),
-    "utf-8"
-  );
+  return fs.readFileSync(path.join(process.cwd(), "src", filePath), "utf-8");
 }
 
 describe("WCAG 2.1 AA: Document Structure", () => {

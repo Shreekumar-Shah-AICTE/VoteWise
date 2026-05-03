@@ -34,11 +34,29 @@ export default function StationsPage() {
     <main id="main-content" className="min-h-screen">
       <header className="border-b border-white/5 bg-gray-950/80 backdrop-blur-lg sticky top-0 z-10">
         <div className="max-w-5xl mx-auto px-4 py-4 flex items-center gap-4">
-          <Link href="/" className="text-gray-400 hover:text-white transition-colors rounded-lg p-1" aria-label="Back to home">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+          <Link
+            href="/"
+            className="text-gray-400 hover:text-white transition-colors rounded-lg p-1"
+            aria-label="Back to home"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
           </Link>
           <div>
-            <h1 className="text-lg font-semibold"><span aria-hidden="true">📍</span> Polling Station Finder</h1>
+            <h1 className="text-lg font-semibold">
+              <span aria-hidden="true">📍</span> Polling Station Finder
+            </h1>
             <p className="text-xs text-gray-500">Powered by Google Maps</p>
           </div>
         </div>
@@ -48,7 +66,9 @@ export default function StationsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Sidebar — Station list */}
           <div className="lg:col-span-1">
-            <label htmlFor="station-search" className="sr-only">Search polling stations</label>
+            <label htmlFor="station-search" className="sr-only">
+              Search polling stations
+            </label>
             <input
               id="station-search"
               type="search"
@@ -58,7 +78,11 @@ export default function StationsPage() {
               className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 mb-4"
             />
 
-            <div className="space-y-2 max-h-[60vh] overflow-y-auto" role="list" aria-label="Polling stations">
+            <div
+              className="space-y-2 max-h-[60vh] overflow-y-auto"
+              role="list"
+              aria-label="Polling stations"
+            >
               {filteredStations.map((station) => (
                 <button
                   key={station.id}
@@ -70,7 +94,9 @@ export default function StationsPage() {
                   } focus-visible:ring-2 focus-visible:ring-indigo-400`}
                   role="listitem"
                 >
-                  <h3 className="text-sm font-semibold text-white mb-1">{station.name}</h3>
+                  <h3 className="text-sm font-semibold text-white mb-1">
+                    {station.name}
+                  </h3>
                   <p className="text-xs text-gray-400">{station.address}</p>
                   <span className="inline-block mt-2 text-xs px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">
                     {station.constituency}
@@ -78,7 +104,9 @@ export default function StationsPage() {
                 </button>
               ))}
               {filteredStations.length === 0 && (
-                <p className="text-sm text-gray-500 text-center py-8">No stations found for &quot;{searchQuery}&quot;</p>
+                <p className="text-sm text-gray-500 text-center py-8">
+                  No stations found for &quot;{searchQuery}&quot;
+                </p>
               )}
             </div>
           </div>
@@ -91,19 +119,27 @@ export default function StationsPage() {
                 <div className="text-center p-8 animate-fade-in">
                   <div className="text-5xl mb-4">📍</div>
                   <h2 className="text-xl font-bold mb-2">{selected.name}</h2>
-                  <p className="text-gray-400 text-sm mb-4">{selected.address}</p>
+                  <p className="text-gray-400 text-sm mb-4">
+                    {selected.address}
+                  </p>
                   <div className="glass-card p-4 text-left max-w-sm mx-auto">
                     <div className="flex justify-between text-sm mb-2">
                       <span className="text-gray-500">Constituency:</span>
-                      <span className="text-white">{selected.constituency}</span>
+                      <span className="text-white">
+                        {selected.constituency}
+                      </span>
                     </div>
                     <div className="flex justify-between text-sm mb-2">
                       <span className="text-gray-500">Latitude:</span>
-                      <span className="text-white font-mono">{selected.lat}</span>
+                      <span className="text-white font-mono">
+                        {selected.lat}
+                      </span>
                     </div>
                     <div className="flex justify-between text-sm">
                       <span className="text-gray-500">Longitude:</span>
-                      <span className="text-white font-mono">{selected.lng}</span>
+                      <span className="text-white font-mono">
+                        {selected.lng}
+                      </span>
                     </div>
                   </div>
                   <a
@@ -117,17 +153,31 @@ export default function StationsPage() {
                 </div>
               ) : (
                 <div className="text-center p-8">
-                  <div className="text-5xl mb-4" aria-hidden="true">🗺️</div>
-                  <h2 className="text-lg font-semibold text-gray-400 mb-2">Select a Polling Station</h2>
-                  <p className="text-sm text-gray-500">Choose a station from the list to view its location details</p>
+                  <div className="text-5xl mb-4" aria-hidden="true">
+                    🗺️
+                  </div>
+                  <h2 className="text-lg font-semibold text-gray-400 mb-2">
+                    Select a Polling Station
+                  </h2>
+                  <p className="text-sm text-gray-500">
+                    Choose a station from the list to view its location details
+                  </p>
                 </div>
               )}
             </div>
 
             {/* Info note */}
             <div className="mt-4 p-4 rounded-xl bg-yellow-500/5 border border-yellow-500/20 text-sm text-yellow-400/80">
-              <strong>Note:</strong> These are sample polling station locations for demonstration. For your actual polling station, visit the{" "}
-              <a href="https://eci.gov.in" target="_blank" rel="noopener noreferrer" className="underline hover:text-yellow-300">ECI website</a>{" "}
+              <strong>Note:</strong> These are sample polling station locations
+              for demonstration. For your actual polling station, visit the{" "}
+              <a
+                href="https://eci.gov.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-yellow-300"
+              >
+                ECI website
+              </a>{" "}
               or use the Voter Helpline app.
             </div>
           </div>

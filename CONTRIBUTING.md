@@ -21,6 +21,7 @@ Thank you for your interest in contributing to VoteWise! This document provides 
 ## 🚀 Getting Started
 
 ### Prerequisites
+
 - Node.js 20+
 - npm 10+
 - Google Gemini API Key ([Get one free](https://aistudio.google.com/apikey))
@@ -41,18 +42,21 @@ npm run dev
 ## 📋 Development Guidelines
 
 ### Code Quality
+
 - **TypeScript:** Strict mode enabled — no `any` types allowed
 - **ESLint:** Zero warnings policy — run `npm run lint` before committing
 - **Prettier:** Consistent formatting — run `npm run format` before committing
 - **JSDoc:** All exported functions must have JSDoc comments
 
 ### Security
+
 - Never hardcode API keys — always use `process.env`
 - Validate all API inputs with Zod schemas
 - Sanitize user input before rendering (use `sanitizeInput()`)
 - See [`SECURITY.md`](SECURITY.md) for full security policy
 
 ### Accessibility (WCAG 2.1 AA)
+
 - Use semantic HTML (`<main>`, `<nav>`, `<section>`, etc.)
 - Add `aria-label` to all interactive elements
 - Ensure 4.5:1 minimum color contrast ratio
@@ -60,12 +64,14 @@ npm run dev
 - Respect `prefers-reduced-motion` and `prefers-contrast`
 
 ### Testing
+
 - All new features must include tests
 - Run `npm test` before submitting PRs
 - Target: 100% pass rate
 - See [`TESTING.md`](TESTING.md) for testing documentation
 
 ### Commit Messages
+
 We follow [Conventional Commits](https://www.conventionalcommits.org/):
 
 ```
@@ -98,4 +104,4 @@ By contributing, you agree that your contributions will be licensed under the [M
 
 ---
 
-*Built for the PromptWars Challenge 2 — Election Process Education*
+_Built for the PromptWars Challenge 2 — Election Process Education_

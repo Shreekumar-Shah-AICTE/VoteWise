@@ -58,7 +58,9 @@ PERSONALITY:
  *
  * @returns Configured GenerativeModel instance
  */
-export function getElectionAssistantModel(): ReturnType<typeof genAI.getGenerativeModel> {
+export function getElectionAssistantModel(): ReturnType<
+  typeof genAI.getGenerativeModel
+> {
   return genAI.getGenerativeModel({
     model: "gemini-2.5-flash-preview-05-20",
     systemInstruction: ELECTION_SYSTEM_INSTRUCTION,

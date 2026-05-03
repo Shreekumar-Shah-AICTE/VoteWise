@@ -28,7 +28,13 @@ export default function NotFound() {
 
       {/* Logo */}
       <div className="mb-6">
-        <Image src="/logo.png" alt="VoteWise" width={96} height={96} className="rounded-2xl" />
+        <Image
+          src="/logo.png"
+          alt="VoteWise"
+          width={96}
+          height={96}
+          className="rounded-2xl"
+        />
       </div>
 
       {/* Error message */}

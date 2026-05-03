@@ -27,7 +27,9 @@ describe("ELECTION_SYSTEM_INSTRUCTION", () => {
   });
 
   it("should include voter registration knowledge", () => {
-    expect(ELECTION_SYSTEM_INSTRUCTION.toLowerCase()).toContain("voter registration");
+    expect(ELECTION_SYSTEM_INSTRUCTION.toLowerCase()).toContain(
+      "voter registration"
+    );
     expect(ELECTION_SYSTEM_INSTRUCTION).toContain("Form 6");
     expect(ELECTION_SYSTEM_INSTRUCTION).toContain("EPIC");
   });

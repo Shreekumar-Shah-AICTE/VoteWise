@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2026-05-03
 
 ### Added
+
 - AI Election Assistant powered by Google Gemini with 3-tier fallback system
 - Interactive 7-step Election Timeline with detailed explanations
 - Mock EVM Voting Simulator for first-time voter training
@@ -23,6 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Smart context-aware fallback responses
 
 ### Security
+
 - Content Security Policy (CSP) headers
 - Rate limiting on API endpoints (20 req/min)
 - Input validation with Zod schemas on all API routes
@@ -30,6 +32,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Non-root Docker container execution
 
 ### Infrastructure
+
 - Deployed on Google Cloud Run (serverless, auto-scaling)
 - Multi-stage Docker build for minimal image size
 - Google Analytics 4 integration for usage insights

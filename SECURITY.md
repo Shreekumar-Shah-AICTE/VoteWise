@@ -24,14 +24,14 @@ Layer 7: Cache Control (no-store on sensitive API responses)
 
 All routes are protected with the following headers via `next.config.ts`:
 
-| Header | Value | Protection |
-|:-------|:------|:-----------|
-| `X-Frame-Options` | `DENY` | Prevents clickjacking attacks |
-| `X-Content-Type-Options` | `nosniff` | Prevents MIME type sniffing |
-| `Strict-Transport-Security` | `max-age=31536000; includeSubDomains` | Forces HTTPS for 1 year |
-| `Referrer-Policy` | `strict-origin-when-cross-origin` | Controls referrer leakage |
-| `Permissions-Policy` | `camera=(), microphone=(), geolocation=(self)` | Restricts browser APIs |
-| `Content-Security-Policy` | `default-src 'self'; script-src 'self' ...` | Prevents XSS and data injection |
+| Header                      | Value                                          | Protection                      |
+| :-------------------------- | :--------------------------------------------- | :------------------------------ |
+| `X-Frame-Options`           | `DENY`                                         | Prevents clickjacking attacks   |
+| `X-Content-Type-Options`    | `nosniff`                                      | Prevents MIME type sniffing     |
+| `Strict-Transport-Security` | `max-age=31536000; includeSubDomains`          | Forces HTTPS for 1 year         |
+| `Referrer-Policy`           | `strict-origin-when-cross-origin`              | Controls referrer leakage       |
+| `Permissions-Policy`        | `camera=(), microphone=(), geolocation=(self)` | Restricts browser APIs          |
+| `Content-Security-Policy`   | `default-src 'self'; script-src 'self' ...`    | Prevents XSS and data injection |
 
 ---
 
@@ -61,15 +61,16 @@ const translateRequestSchema = z.object({
 
 All user-generated content is sanitized via `sanitizeInput()` in `src/lib/utils.ts`:
 
-| Character | Escaped To | Attack Prevented |
-|:---------:|:----------:|:-----------------|
-| `<` | `&lt;` | Script tag injection |
-| `>` | `&gt;` | Script tag injection |
-| `&` | `&amp;` | Entity bypass attacks |
-| `"` | `&quot;` | Attribute injection |
-| `'` | `&#039;` | Attribute injection |
+| Character | Escaped To | Attack Prevented      |
+| :-------: | :--------: | :-------------------- |
+|    `<`    |   `&lt;`   | Script tag injection  |
+|    `>`    |   `&gt;`   | Script tag injection  |
+|    `&`    |  `&amp;`   | Entity bypass attacks |
+|    `"`    |  `&quot;`  | Attribute injection   |
+|    `'`    |  `&#039;`  | Attribute injection   |
 
 ### Attack Vectors Tested
+
 - `<script>alert("xss")</script>` — Script injection
 - `<img src=x onerror=alert(1)>` — Event handler injection
 - `<a href="javascript:alert(1)">` — Protocol injection
@@ -92,13 +93,13 @@ The AI chat endpoint (`POST /api/chat`) implements per-IP rate limiting:
 
 ## API Key Protection
 
-| Practice | Implementation |
-|:---------|:---------------|
-| Environment variables | All keys loaded from `.env.local` via `process.env` |
-| Git exclusion | `.env` and `.env.local` in `.gitignore` |
-| Example file | `.env.example` with placeholder values only |
-| No hardcoding | Zero API keys in source code (verified by security tests) |
-| Docker exclusion | `.env*` in `.dockerignore` |
+| Practice              | Implementation                                            |
+| :-------------------- | :-------------------------------------------------------- |
+| Environment variables | All keys loaded from `.env.local` via `process.env`       |
+| Git exclusion         | `.env` and `.env.local` in `.gitignore`                   |
+| Example file          | `.env.example` with placeholder values only               |
+| No hardcoding         | Zero API keys in source code (verified by security tests) |
+| Docker exclusion      | `.env*` in `.dockerignore`                                |
 
 ---
 
@@ -141,4 +142,4 @@ See [`TESTING.md`](TESTING.md) for full testing documentation.
 
 ---
 
-*Built with defense-in-depth for the PromptWars Challenge 2*
+_Built with defense-in-depth for the PromptWars Challenge 2_

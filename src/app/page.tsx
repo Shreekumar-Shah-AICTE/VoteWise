@@ -89,9 +89,7 @@ export default function HomePage() {
         {/* Hero Content */}
         <div className="relative z-10 text-center max-w-4xl mx-auto animate-fade-in">
           {/* App Logo */}
-          <div
-            className="mb-6 animate-pulse-glow inline-block rounded-2xl p-2"
-          >
+          <div className="mb-6 animate-pulse-glow inline-block rounded-2xl p-2">
             <Image
               src="/logo.png"
               alt="VoteWise Logo"
@@ -115,8 +113,7 @@ export default function HomePage() {
           </p>
           <p className="text-base md:text-lg text-gray-500 mb-10 max-w-2xl mx-auto">
             Your interactive guide to understanding India&apos;s democratic
-            election process — learn, quiz yourself, and experience mock
-            voting.
+            election process — learn, quiz yourself, and experience mock voting.
           </p>
 
           {/* CTA Buttons */}
@@ -175,8 +172,8 @@ export default function HomePage() {
           <span className="text-indigo-400">Vote Ready</span>
         </h2>
         <p className="text-gray-400 text-center mb-12 max-w-2xl mx-auto">
-          From learning the basics to practicing on a mock EVM — VoteWise
-          covers every step of your journey as a voter.
+          From learning the basics to practicing on a mock EVM — VoteWise covers
+          every step of your journey as a voter.
         </p>
 
         {/* A11y: Feature cards grid with proper navigation structure */}
@@ -257,17 +254,15 @@ export default function HomePage() {
       >
         <p>
           Built for{" "}
-          <span className="text-indigo-400">
-            PromptWars Challenge 2
-          </span>{" "}
-          — Election Process Education
+          <span className="text-indigo-400">PromptWars Challenge 2</span> —
+          Election Process Education
         </p>
         <p className="mt-1">
           Powered by Google Gemini AI · Google Maps · Google Translate
         </p>
         <p className="mt-2 text-xs text-gray-600">
-          Disclaimer: VoteWise is an educational tool. For official
-          information, visit{" "}
+          Disclaimer: VoteWise is an educational tool. For official information,
+          visit{" "}
           <a
             href="https://eci.gov.in"
             target="_blank"

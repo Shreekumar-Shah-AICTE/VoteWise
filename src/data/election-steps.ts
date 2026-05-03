@@ -24,7 +24,8 @@ export const electionSteps: ElectionStep[] = [
       "You can check your registration status using the Voter Helpline app",
       "NRI citizens can also register as overseas electors using Form 6A",
     ],
-    timeline: "Registration is open year-round; updates happen before elections",
+    timeline:
+      "Registration is open year-round; updates happen before elections",
   },
   {
     id: 2,
@@ -78,8 +79,7 @@ export const electionSteps: ElectionStep[] = [
       "ECI monitors spending through expenditure observers",
       "Paid news and surrogate advertising are banned",
     ],
-    timeline:
-      "Typically 2-3 weeks; ends 48 hours before polling day",
+    timeline: "Typically 2-3 weeks; ends 48 hours before polling day",
   },
   {
     id: 5,

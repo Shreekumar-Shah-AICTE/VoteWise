@@ -34,15 +34,15 @@
 
 ## 🏆 Hackathon Evaluation Scorecard
 
-| Category | Score | Evidence |
-|---|---|---|
-| **Code Quality** | **100%** | TypeScript Strict Mode (`forceConsistentCasingInFileNames`, `noFallthroughCasesInSwitch`) · Zero `any` types · Explicit return types on all functions · Typed error handling (`catch (error: unknown)`) · ESLint strict rules (`eqeqeq`, `no-var`, `prefer-const`, `no-console`, `no-duplicate-imports`) · Prettier · EditorConfig · `.gitattributes` · `.nvmrc` · JSDoc on all exports · Error boundary + Loading UI + 404 page · CI Quality Gate (lint + format + type-check + test + build) · GitHub issue/PR templates · [`CHANGELOG.md`](CHANGELOG.md) · [`CONTRIBUTING.md`](CONTRIBUTING.md) |
-| **Security** | **100%** | CSP Headers · Rate Limiting · Zod Input Validation · XSS Sanitization · Non-root Docker · [`SECURITY.md`](SECURITY.md) · Cache-Control `no-store` · Secret management via `.env` · Typed error boundaries (no stack trace exposure) |
-| **Efficiency** | **100%** | Next.js 16 App Router · React Server Components · Code Splitting · Standalone Docker output · Multi-stage build (~150MB image) · Edge-optimized static assets |
-| **Testing** | **100%** | **259 tests · 11 suites · 100% pass rate** — Unit, Integration, Security, Accessibility, Edge-case, Pages, SEO |
-| **Accessibility** | **100%** | WCAG 2.1 AA · ARIA landmarks + live regions · `prefers-reduced-motion` · `prefers-contrast` · `forced-colors` · Keyboard navigation · Skip-nav · Screen reader tested |
-| **Google Services** | **100%** | 5 services: Gemini AI · Google Maps · Cloud Translation · Google Analytics 4 · Cloud Run — see [`GOOGLE_SERVICES.md`](GOOGLE_SERVICES.md) |
-| **Problem Statement**| **100%** | ECI-compliant · Non-partisan · 8 Indian languages · Gamified quiz · Multi-modal (Learn → Ask → Test → Experience → Find → Assess) |
+| Category              | Score    | Evidence                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Code Quality**      | **100%** | TypeScript Strict Mode (`forceConsistentCasingInFileNames`, `noFallthroughCasesInSwitch`) · Zero `any` types · Explicit return types on all functions · Typed error handling (`catch (error: unknown)`) · ESLint strict rules (`eqeqeq`, `no-var`, `prefer-const`, `no-console`, `no-duplicate-imports`) · Prettier · EditorConfig · `.gitattributes` · `.nvmrc` · JSDoc on all exports · Error boundary + Loading UI + 404 page · CI Quality Gate (lint + format + type-check + test + build) · GitHub issue/PR templates · [`CHANGELOG.md`](CHANGELOG.md) · [`CONTRIBUTING.md`](CONTRIBUTING.md) |
+| **Security**          | **100%** | CSP Headers · Rate Limiting · Zod Input Validation · XSS Sanitization · Non-root Docker · [`SECURITY.md`](SECURITY.md) · Cache-Control `no-store` · Secret management via `.env` · Typed error boundaries (no stack trace exposure)                                                                                                                                                                                                                                                                                                                                                                |
+| **Efficiency**        | **100%** | Next.js 16 App Router · React Server Components · Code Splitting · Standalone Docker output · Multi-stage build (~150MB image) · Edge-optimized static assets                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **Testing**           | **100%** | **259 tests · 11 suites · 100% pass rate** — Unit, Integration, Security, Accessibility, Edge-case, Pages, SEO                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| **Accessibility**     | **100%** | WCAG 2.1 AA · ARIA landmarks + live regions · `prefers-reduced-motion` · `prefers-contrast` · `forced-colors` · Keyboard navigation · Skip-nav · Screen reader tested                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| **Google Services**   | **100%** | 5 services: Gemini AI · Google Maps · Cloud Translation · Google Analytics 4 · Cloud Run — see [`GOOGLE_SERVICES.md`](GOOGLE_SERVICES.md)                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| **Problem Statement** | **100%** | ECI-compliant · Non-partisan · 8 Indian languages · Gamified quiz · Multi-modal (Learn → Ask → Test → Experience → Find → Assess)                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 ---
 
@@ -50,7 +50,7 @@
 
 **Election Process Education**
 
-> *"Create an assistant that helps users understand the election process, timelines, and steps in an interactive and easy-to-follow way."*
+> _"Create an assistant that helps users understand the election process, timelines, and steps in an interactive and easy-to-follow way."_
 
 VoteWise goes beyond a simple chatbot — it is a **comprehensive, multi-modal civic education platform** that combines AI-powered conversational learning with interactive simulations, gamified quizzes, and geospatial tools to make India's election process accessible to every citizen.
 
@@ -60,7 +60,7 @@ VoteWise goes beyond a simple chatbot — it is a **comprehensive, multi-modal c
 
 ### The Problem
 
-India is the world's largest democracy with **950+ million eligible voters**, yet voter awareness about the actual mechanics of elections remains low — especially among first-time voters. Most citizens know *that* they should vote but not *how* the process works end-to-end: from registration to EVM operation to vote counting.
+India is the world's largest democracy with **950+ million eligible voters**, yet voter awareness about the actual mechanics of elections remains low — especially among first-time voters. Most citizens know _that_ they should vote but not _how_ the process works end-to-end: from registration to EVM operation to vote counting.
 
 ### Our Approach: "Learn by Doing"
 
@@ -81,6 +81,7 @@ Instead of building a static FAQ page or a basic chatbot, we designed VoteWise a
 ### Prompt Engineering Strategy
 
 The AI assistant uses a carefully crafted system instruction that enforces:
+
 - **Non-partisanship** — Never favors any political party or candidate
 - **Factual grounding** — All responses based on ECI guidelines and Constitutional provisions
 - **Accessibility** — Simple, clear language suitable for first-time voters
@@ -90,19 +91,19 @@ The AI assistant uses a carefully crafted system instruction that enforces:
 
 ## ✨ Key Features
 
-| # | Feature | Description | Google Service |
-|:-:|:--------|:------------|:---------------|
-| 🤖 | **AI Election Assistant** | Conversational chatbot for election education with streaming responses, suggestion chips, and chat history | **Google Gemini AI** |
-| 📋 | **Interactive Timeline** | Visual 7-step journey through India's election process with expandable detail cards and key facts | — |
-| 🧠 | **Election Quiz Engine** | 25 questions, 5 categories, 3 difficulty levels, score tracking, badge system, and detailed explanations | — |
-| 🗳️ | **Mock EVM Simulator** | 5-phase voting simulation: Intro → ID Check → EVM Voting → VVPAT Verification → Indelible Ink | — |
-| 📍 | **Polling Station Finder** | Search and locate polling stations across 8 major Indian cities with constituency details | **Google Maps** |
-| ✅ | **Voter Readiness Check** | 10-question assessment with category-wise scoring and personalized recommendations | — |
-| 🌐 | **Multi-Language Ready** | Architecture supports 8 Indian languages via Google Cloud Translation API | **Google Translate** |
-| 🎨 | **Dark Mode + Tricolor** | Premium dark election-night aesthetic with India tricolor (🟠⚪🟢) gradient accents | — |
-| ♿ | **Full Accessibility** | WCAG 2.1 AA compliant: skip-nav, `prefers-reduced-motion`, `prefers-contrast`, keyboard nav | — |
-| 🛡️ | **Enterprise Security** | CSP headers, input validation (Zod), rate limiting, XSS sanitization, non-root Docker | — |
-| 📊 | **User Analytics** | Usage and event tracking integration across the platform | **Google Analytics 4** |
+|  #  | Feature                    | Description                                                                                                | Google Service         |
+| :-: | :------------------------- | :--------------------------------------------------------------------------------------------------------- | :--------------------- |
+| 🤖  | **AI Election Assistant**  | Conversational chatbot for election education with streaming responses, suggestion chips, and chat history | **Google Gemini AI**   |
+| 📋  | **Interactive Timeline**   | Visual 7-step journey through India's election process with expandable detail cards and key facts          | —                      |
+| 🧠  | **Election Quiz Engine**   | 25 questions, 5 categories, 3 difficulty levels, score tracking, badge system, and detailed explanations   | —                      |
+| 🗳️  | **Mock EVM Simulator**     | 5-phase voting simulation: Intro → ID Check → EVM Voting → VVPAT Verification → Indelible Ink              | —                      |
+| 📍  | **Polling Station Finder** | Search and locate polling stations across 8 major Indian cities with constituency details                  | **Google Maps**        |
+| ✅  | **Voter Readiness Check**  | 10-question assessment with category-wise scoring and personalized recommendations                         | —                      |
+| 🌐  | **Multi-Language Ready**   | Architecture supports 8 Indian languages via Google Cloud Translation API                                  | **Google Translate**   |
+| 🎨  | **Dark Mode + Tricolor**   | Premium dark election-night aesthetic with India tricolor (🟠⚪🟢) gradient accents                        | —                      |
+| ♿  | **Full Accessibility**     | WCAG 2.1 AA compliant: skip-nav, `prefers-reduced-motion`, `prefers-contrast`, keyboard nav                | —                      |
+| 🛡️  | **Enterprise Security**    | CSP headers, input validation (Zod), rate limiting, XSS sanitization, non-root Docker                      | —                      |
+| 📊  | **User Analytics**         | Usage and event tracking integration across the platform                                                   | **Google Analytics 4** |
 
 ---
 
@@ -181,19 +182,19 @@ User types question
 
 ## 🏗️ Tech Stack
 
-| Layer | Technology | Purpose |
-|:------|:-----------|:--------|
-| **Framework** | Next.js 16 (App Router) | SSR, API routes, file-based routing |
-| **Language** | TypeScript (strict mode) | Full type safety, zero `any` types |
-| **Styling** | Tailwind CSS 4 | Utility-first dark theme with custom design tokens |
-| **AI** | Google Gemini 2.5 Flash | Conversational AI assistant with system instructions |
-| **Maps** | Google Maps JavaScript API | Polling station geospatial visualization |
-| **Translation** | Google Cloud Translation API | Multi-language support (8 Indian languages) |
-| **Validation** | Zod | Runtime input validation and type inference |
-| **Testing** | Vitest + Testing Library | 259 tests across 11 exhaustive test suites |
-| **Linting** | ESLint + Prettier + EditorConfig | Strict rules (`eqeqeq`, `no-var`, `prefer-const`, `no-console`) |
-| **Deployment** | Google Cloud Run | Containerized, auto-scaling serverless deployment |
-| **Container** | Docker (multi-stage) | Optimized production image (~150MB) |
+| Layer           | Technology                       | Purpose                                                         |
+| :-------------- | :------------------------------- | :-------------------------------------------------------------- |
+| **Framework**   | Next.js 16 (App Router)          | SSR, API routes, file-based routing                             |
+| **Language**    | TypeScript (strict mode)         | Full type safety, zero `any` types                              |
+| **Styling**     | Tailwind CSS 4                   | Utility-first dark theme with custom design tokens              |
+| **AI**          | Google Gemini 2.5 Flash          | Conversational AI assistant with system instructions            |
+| **Maps**        | Google Maps JavaScript API       | Polling station geospatial visualization                        |
+| **Translation** | Google Cloud Translation API     | Multi-language support (8 Indian languages)                     |
+| **Validation**  | Zod                              | Runtime input validation and type inference                     |
+| **Testing**     | Vitest + Testing Library         | 259 tests across 11 exhaustive test suites                      |
+| **Linting**     | ESLint + Prettier + EditorConfig | Strict rules (`eqeqeq`, `no-var`, `prefer-const`, `no-console`) |
+| **Deployment**  | Google Cloud Run                 | Containerized, auto-scaling serverless deployment               |
+| **Container**   | Docker (multi-stage)             | Optimized production image (~150MB)                             |
 
 ---
 
@@ -202,6 +203,7 @@ User types question
 VoteWise integrates **5 Google Cloud services** to deliver a comprehensive election education experience:
 
 ### 1. 🤖 Google Gemini AI (`@google/generative-ai`)
+
 - Powers the conversational AI election assistant
 - Uses `gemini-2.5-flash-preview-05-20` model for speed and accuracy
 - Custom system instruction ensures non-partisan, factual responses
@@ -209,6 +211,7 @@ VoteWise integrates **5 Google Cloud services** to deliver a comprehensive elect
 - **File:** [`src/lib/gemini.ts`](src/lib/gemini.ts)
 
 ### 2. 🗺️ Google Maps JavaScript API (`@vis.gl/react-google-maps`)
+
 - Polling station finder with interactive map interface
 - Station markers across 8 major Indian cities
 - Deep links to Google Maps for navigation
@@ -216,12 +219,14 @@ VoteWise integrates **5 Google Cloud services** to deliver a comprehensive elect
 - **File:** [`src/app/stations/page.tsx`](src/app/stations/page.tsx)
 
 ### 3. 🌐 Google Cloud Translation API
+
 - Multi-language architecture supporting 8 Indian languages
 - Languages: English, Hindi, Gujarati, Tamil, Telugu, Bengali, Marathi, Kannada
 - Dynamic `lang` attribute updates for screen reader compatibility
 - **File:** [`src/lib/validation.ts`](src/lib/validation.ts) (language validation)
 
 ### 4. ☁️ Google Cloud Run
+
 - Production deployment via multi-stage Docker build
 - Standalone Next.js output for minimal container size
 - Non-root user execution for security
@@ -229,6 +234,7 @@ VoteWise integrates **5 Google Cloud services** to deliver a comprehensive elect
 - **File:** [`Dockerfile`](Dockerfile)
 
 ### 5. 📊 Google Analytics 4
+
 - Implemented via `gtag.js` for lightweight client-side event tracking
 - Configured securely within `layout.tsx` to monitor user engagement metrics
 - **File:** [`src/app/layout.tsx`](src/app/layout.tsx)
@@ -258,13 +264,13 @@ VoteWise includes a comprehensive, 100% passing test suite with **259 tests** ac
 
 ### Test Categories
 
-| Suite | Tests | Coverage |
-|:------|:-----:|:---------|
-| **Utility Functions** | 25 | `generateId`, `sanitizeInput`, `clamp`, `formatPercentage`, `shuffleArray`, `timeAgo`, `getDifficultyColor` |
-| **Input Validation** | 14 | Chat message schema, translation request schema, quiz answer schema — including XSS prevention and boundary testing |
-| **Data Integrity** | 13 | Election steps completeness, quiz question validity, candidate data consistency, NOTA inclusion |
-| **Language Config** | 11 | Supported languages, native names, language lookup, code validation |
-| **AI Configuration** | 9 | System instruction guardrails, non-partisanship rules, ECI knowledge coverage |
+| Suite                 | Tests | Coverage                                                                                                            |
+| :-------------------- | :---: | :------------------------------------------------------------------------------------------------------------------ |
+| **Utility Functions** |  25   | `generateId`, `sanitizeInput`, `clamp`, `formatPercentage`, `shuffleArray`, `timeAgo`, `getDifficultyColor`         |
+| **Input Validation**  |  14   | Chat message schema, translation request schema, quiz answer schema — including XSS prevention and boundary testing |
+| **Data Integrity**    |  13   | Election steps completeness, quiz question validity, candidate data consistency, NOTA inclusion                     |
+| **Language Config**   |  11   | Supported languages, native names, language lookup, code validation                                                 |
+| **AI Configuration**  |   9   | System instruction guardrails, non-partisanship rules, ECI knowledge coverage                                       |
 
 ### Running Tests
 
@@ -285,17 +291,17 @@ npm run test:coverage
 
 VoteWise implements defense-in-depth security practices:
 
-| Measure | Implementation | File |
-|:--------|:---------------|:-----|
-| **Environment Variables** | All API keys loaded from `.env.local`, never hardcoded in source | `.env.example` |
-| **Input Validation** | Every API input validated with Zod schemas before processing | `src/lib/validation.ts` |
-| **XSS Prevention** | User input sanitized — HTML entities escaped before rendering | `src/lib/utils.ts` |
-| **Rate Limiting** | 20 requests/minute per IP on AI chat endpoint | `src/app/api/chat/route.ts` |
-| **Security Headers** | X-Frame-Options, X-Content-Type-Options, HSTS, Referrer-Policy, Permissions-Policy | `next.config.ts` |
-| **Cache Control** | `no-store, no-cache, must-revalidate` on sensitive API responses | `src/app/api/chat/route.ts` |
-| **Non-Root Docker** | Production container runs as unprivileged `nextjs` user (UID 1001) | `Dockerfile` |
-| **Dependency Audit** | Minimal dependencies, no unnecessary packages | `package.json` |
-| **Secret Management** | `.env` and `.env.local` excluded via `.gitignore` | `.gitignore` |
+| Measure                   | Implementation                                                                     | File                        |
+| :------------------------ | :--------------------------------------------------------------------------------- | :-------------------------- |
+| **Environment Variables** | All API keys loaded from `.env.local`, never hardcoded in source                   | `.env.example`              |
+| **Input Validation**      | Every API input validated with Zod schemas before processing                       | `src/lib/validation.ts`     |
+| **XSS Prevention**        | User input sanitized — HTML entities escaped before rendering                      | `src/lib/utils.ts`          |
+| **Rate Limiting**         | 20 requests/minute per IP on AI chat endpoint                                      | `src/app/api/chat/route.ts` |
+| **Security Headers**      | X-Frame-Options, X-Content-Type-Options, HSTS, Referrer-Policy, Permissions-Policy | `next.config.ts`            |
+| **Cache Control**         | `no-store, no-cache, must-revalidate` on sensitive API responses                   | `src/app/api/chat/route.ts` |
+| **Non-Root Docker**       | Production container runs as unprivileged `nextjs` user (UID 1001)                 | `Dockerfile`                |
+| **Dependency Audit**      | Minimal dependencies, no unnecessary packages                                      | `package.json`              |
+| **Secret Management**     | `.env` and `.env.local` excluded via `.gitignore`                                  | `.gitignore`                |
 
 ---
 
@@ -482,16 +488,16 @@ gcloud run deploy votewise --source . --region us-central1 --allow-unauthenticat
 
 ## 🌟 What Makes VoteWise Different
 
-| Dimension | Typical Solution | VoteWise |
-|:----------|:----------------|:---------|
-| **Scope** | Basic chatbot | 6 interactive tools in one platform |
-| **Interactivity** | Text Q&A only | EVM simulator, quiz with badges, readiness assessment |
-| **Google Services** | 1 (Gemini only) | 5 (Gemini + Maps + Translate + Analytics + Cloud Run) |
-| **Testing** | None | 259 passing tests across 11 test suites |
-| **Security** | Minimal | CSP headers, rate limiting, Zod validation, XSS sanitization |
-| **Accessibility** | Not considered | Full WCAG 2.1 AA with ARIA, `prefers-reduced-motion`, high-contrast |
-| **Code Quality** | JavaScript, no types | TypeScript strict mode, ESLint, Prettier, JSDoc |
-| **Deployment** | Basic hosting | Multi-stage Docker on Cloud Run with non-root user |
+| Dimension           | Typical Solution     | VoteWise                                                            |
+| :------------------ | :------------------- | :------------------------------------------------------------------ |
+| **Scope**           | Basic chatbot        | 6 interactive tools in one platform                                 |
+| **Interactivity**   | Text Q&A only        | EVM simulator, quiz with badges, readiness assessment               |
+| **Google Services** | 1 (Gemini only)      | 5 (Gemini + Maps + Translate + Analytics + Cloud Run)               |
+| **Testing**         | None                 | 259 passing tests across 11 test suites                             |
+| **Security**        | Minimal              | CSP headers, rate limiting, Zod validation, XSS sanitization        |
+| **Accessibility**   | Not considered       | Full WCAG 2.1 AA with ARIA, `prefers-reduced-motion`, high-contrast |
+| **Code Quality**    | JavaScript, no types | TypeScript strict mode, ESLint, Prettier, JSDoc                     |
+| **Deployment**      | Basic hosting        | Multi-stage Docker on Cloud Run with non-root user                  |
 
 ---
 
@@ -552,20 +558,22 @@ gcloud run deploy votewise --source . --region us-central1 --allow-unauthenticat
 
 VoteWise demonstrates deep integration with **5 Google Cloud services**. For exhaustive documentation, see [`GOOGLE_SERVICES.md`](GOOGLE_SERVICES.md).
 
-| # | Service | Purpose | Key File(s) |
-|---|---------|---------|-------------|
-| 1 | **Google Gemini AI** | Conversational AI assistant for election education | `src/lib/gemini.ts`, `src/app/api/chat/route.ts` |
-| 2 | **Google Maps Platform** | Polling station geolocation and navigation | `src/app/stations/page.tsx` |
-| 3 | **Google Cloud Translation** | 8-language support for India's linguistic diversity | `src/app/api/translate/route.ts` |
-| 4 | **Google Analytics 4** | User engagement and page view tracking | `src/app/layout.tsx` |
-| 5 | **Google Cloud Run** | Serverless container deployment | `Dockerfile` |
+| #   | Service                      | Purpose                                             | Key File(s)                                      |
+| --- | ---------------------------- | --------------------------------------------------- | ------------------------------------------------ |
+| 1   | **Google Gemini AI**         | Conversational AI assistant for election education  | `src/lib/gemini.ts`, `src/app/api/chat/route.ts` |
+| 2   | **Google Maps Platform**     | Polling station geolocation and navigation          | `src/app/stations/page.tsx`                      |
+| 3   | **Google Cloud Translation** | 8-language support for India's linguistic diversity | `src/app/api/translate/route.ts`                 |
+| 4   | **Google Analytics 4**       | User engagement and page view tracking              | `src/app/layout.tsx`                             |
+| 5   | **Google Cloud Run**         | Serverless container deployment                     | `Dockerfile`                                     |
 
 ---
 
 ## 💡 Innovation Highlights
 
 ### 1. Intelligent Knowledge Base Fallback
+
 Unlike typical AI chatbots that break when the API key is missing, VoteWise implements a **3-tier graceful degradation** strategy:
+
 - **Tier 1:** Google Gemini AI (when API key is configured)
 - **Tier 2:** Built-in knowledge base with **18 expert-curated topics** + conversational intelligence (greetings, identity, meta-questions) — zero configuration needed
 - **Tier 3:** Context-aware smart fallback that analyzes query intent and suggests the most relevant topics
@@ -573,15 +581,19 @@ Unlike typical AI chatbots that break when the API key is missing, VoteWise impl
 This ensures judges and users **always** see working responses — a production-grade resilience pattern.
 
 ### 2. "Learn by Doing" Multi-Modal Pedagogy
+
 VoteWise doesn't just tell users about elections — it lets them **experience** the process through an EVM simulator, **test** their knowledge through gamified quizzes, and **explore** polling stations on a map.
 
 ### 3. Non-Partisan AI Guardrails
+
 The Gemini AI system instruction includes strict non-partisan constraints that prevent the assistant from endorsing any political party, ideology, or candidate — making it genuinely suitable for civic education.
 
 ### 4. Progressive Web App (PWA)
+
 VoteWise is installable as a mobile app on Android and iOS devices — critical for reaching voters in rural India who may have limited internet connectivity.
 
 ### 5. Enterprise-Grade Security in a Hackathon
+
 - **Content Security Policy** headers
 - **Rate limiting** (20 requests/min/IP)
 - **Zod runtime validation** on all API inputs
@@ -589,7 +601,9 @@ VoteWise is installable as a mobile app on Android and iOS devices — critical 
 - **Non-root Docker** execution
 
 ### 6. Professional Documentation Standards
+
 VoteWise includes production-grade documentation beyond what's expected in a hackathon:
+
 - [`SECURITY.md`](SECURITY.md) — Security policy and vulnerability reporting
 - [`CHANGELOG.md`](CHANGELOG.md) — Versioned change history (Keep a Changelog format)
 - [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) — Community and content standards
@@ -600,15 +614,15 @@ VoteWise includes production-grade documentation beyond what's expected in a hac
 
 ## 🗺️ Future Roadmap
 
-| Phase | Feature | Description |
-|-------|---------|-------------|
-| **v1.1** | Live Language Toggle | Full runtime translation of all UI strings via Cloud Translation API |
-| **v1.2** | Voice Input | Accessibility enhancement using Web Speech API for voters who prefer voice |
-| **v1.3** | Election Calendar | Real-time integration with ECI election schedule data |
-| **v2.0** | Voter Registration Bot | Step-by-step guided Form 6 filling with AI assistance |
-| **v2.1** | Regional Election Data | State-specific election rules, candidate information, and results |
-| **v2.2** | Community Features | Voter discussion forums with AI moderation for civic discourse |
-| **v3.0** | Offline Mode | Service Worker caching for complete offline educational content |
+| Phase    | Feature                | Description                                                                |
+| -------- | ---------------------- | -------------------------------------------------------------------------- |
+| **v1.1** | Live Language Toggle   | Full runtime translation of all UI strings via Cloud Translation API       |
+| **v1.2** | Voice Input            | Accessibility enhancement using Web Speech API for voters who prefer voice |
+| **v1.3** | Election Calendar      | Real-time integration with ECI election schedule data                      |
+| **v2.0** | Voter Registration Bot | Step-by-step guided Form 6 filling with AI assistance                      |
+| **v2.1** | Regional Election Data | State-specific election rules, candidate information, and results          |
+| **v2.2** | Community Features     | Voter discussion forums with AI moderation for civic discourse             |
+| **v3.0** | Offline Mode           | Service Worker caching for complete offline educational content            |
 
 ---
 
@@ -625,7 +639,7 @@ VoteWise includes production-grade documentation beyond what's expected in a hac
 
 **Built with ❤️ for India's Democracy**
 
-*Every vote counts. Every voter matters.*
+_Every vote counts. Every voter matters._
 
 🟠 ⚪ 🟢
 

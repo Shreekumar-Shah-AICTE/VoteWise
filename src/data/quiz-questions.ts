@@ -34,8 +34,7 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 3,
-    question:
-      "Which form is used to register as a new voter in India?",
+    question: "Which form is used to register as a new voter in India?",
     options: ["Form 1", "Form 6", "Form 8", "Form 10"],
     correctAnswer: 1,
     explanation:
@@ -142,8 +141,7 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 11,
-    question:
-      "How many seats are needed for a majority in the Lok Sabha?",
+    question: "How many seats are needed for a majority in the Lok Sabha?",
     options: ["250", "272", "300", "280"],
     correctAnswer: 1,
     explanation:
@@ -153,8 +151,7 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 12,
-    question:
-      "Which voting system does India use for general elections?",
+    question: "Which voting system does India use for general elections?",
     options: [
       "Proportional Representation",
       "Single Transferable Vote",
@@ -184,8 +181,7 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 14,
-    question:
-      "Why is indelible ink applied to a voter's finger after voting?",
+    question: "Why is indelible ink applied to a voter's finger after voting?",
     options: [
       "As a celebration mark",
       "For identification purposes only",
@@ -210,8 +206,7 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 16,
-    question:
-      "What is the minimum age to contest elections for the Lok Sabha?",
+    question: "What is the minimum age to contest elections for the Lok Sabha?",
     options: ["18 years", "21 years", "25 years", "30 years"],
     correctAnswer: 2,
     explanation:
@@ -221,8 +216,7 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 17,
-    question:
-      "Which app can be used to report election violations in India?",
+    question: "Which app can be used to report election violations in India?",
     options: ["Voter Helpline", "cVIGIL", "DigiLocker", "UMANG"],
     correctAnswer: 1,
     explanation:
@@ -243,8 +237,7 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 19,
-    question:
-      "Where are the EVMs stored between polling day and counting day?",
+    question: "Where are the EVMs stored between polling day and counting day?",
     options: [
       "At the polling station",
       "At the party headquarters",
@@ -259,7 +252,8 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 20,
-    question: "What is the spending limit per candidate for Lok Sabha elections?",
+    question:
+      "What is the spending limit per candidate for Lok Sabha elections?",
     options: ["₹50 lakh", "₹70 lakh", "₹95 lakh", "₹1 crore"],
     correctAnswer: 2,
     explanation:
@@ -269,7 +263,8 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 21,
-    question: "Can NRI (Non-Resident Indian) citizens vote in Indian elections?",
+    question:
+      "Can NRI (Non-Resident Indian) citizens vote in Indian elections?",
     options: [
       "No, NRIs cannot vote",
       "Yes, but only by postal ballot",
@@ -314,8 +309,7 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 24,
-    question:
-      "Which was the first state/territory to use EVMs in India?",
+    question: "Which was the first state/territory to use EVMs in India?",
     options: ["Delhi", "Kerala", "Tamil Nadu", "Goa"],
     correctAnswer: 1,
     explanation:

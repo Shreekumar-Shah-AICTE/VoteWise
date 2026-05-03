@@ -13,24 +13,25 @@
 
 **Integration Points:**
 
-| File | Usage |
-|------|-------|
-| `src/lib/gemini.ts` | Configures the Gemini SDK client, system instructions, and generation parameters |
-| `src/app/api/chat/route.ts` | Server-side API route that sends user messages to Gemini and returns responses |
+| File                         | Usage                                                                                  |
+| ---------------------------- | -------------------------------------------------------------------------------------- |
+| `src/lib/gemini.ts`          | Configures the Gemini SDK client, system instructions, and generation parameters       |
+| `src/app/api/chat/route.ts`  | Server-side API route that sends user messages to Gemini and returns responses         |
 | `src/data/knowledge-base.ts` | Intelligent fallback when Gemini API is unavailable — ensures zero-downtime experience |
 
 **Key Configuration:**
+
 ```typescript
 // src/lib/gemini.ts
 const model = genAI.getGenerativeModel({
   model: "gemini-2.5-flash-preview-05-20",
   systemInstruction: ELECTION_SYSTEM_INSTRUCTION,
   generationConfig: {
-    temperature: 0.7,    // Balanced creativity vs accuracy
-    topP: 0.9,           // Nucleus sampling for natural responses
-    topK: 40,            // Token diversity
-    maxOutputTokens: 1024 // Concise, digestible answers
-  }
+    temperature: 0.7, // Balanced creativity vs accuracy
+    topP: 0.9, // Nucleus sampling for natural responses
+    topK: 40, // Token diversity
+    maxOutputTokens: 1024, // Concise, digestible answers
+  },
 });
 ```
 
@@ -50,12 +51,13 @@ const model = genAI.getGenerativeModel({
 
 **Integration Points:**
 
-| File | Usage |
-|------|-------|
-| `src/app/stations/page.tsx` | Renders polling station list with "Open in Google Maps" deep links |
-| `src/data/polling-stations.ts` | Contains polling station data with latitude/longitude coordinates |
+| File                           | Usage                                                              |
+| ------------------------------ | ------------------------------------------------------------------ |
+| `src/app/stations/page.tsx`    | Renders polling station list with "Open in Google Maps" deep links |
+| `src/data/polling-stations.ts` | Contains polling station data with latitude/longitude coordinates  |
 
 **Key Features:**
+
 - **Searchable station list** — filter by name, area, or constituency
 - **Google Maps deep links** — clicking "Open in Google Maps" launches navigation with exact coordinates
 - **Geolocation data** — each station has precise lat/lng for accurate mapping
@@ -73,24 +75,24 @@ const model = genAI.getGenerativeModel({
 
 **Integration Points:**
 
-| File | Usage |
-|------|-------|
-| `src/app/api/translate/route.ts` | Server-side API route for text translation |
-| `src/lib/validation.ts` | Zod schema validating target language codes |
-| `src/components/LanguageSelector.tsx` | UI dropdown for language switching |
+| File                                  | Usage                                       |
+| ------------------------------------- | ------------------------------------------- |
+| `src/app/api/translate/route.ts`      | Server-side API route for text translation  |
+| `src/lib/validation.ts`               | Zod schema validating target language codes |
+| `src/components/LanguageSelector.tsx` | UI dropdown for language switching          |
 
 **Supported Languages (8):**
 
-| Code | Language | Script |
-|------|----------|--------|
-| `en` | English | Latin |
-| `hi` | हिंदी (Hindi) | Devanagari |
-| `gu` | ગુજરાતી (Gujarati) | Gujarati |
-| `ta` | தமிழ் (Tamil) | Tamil |
-| `te` | తెలుగు (Telugu) | Telugu |
-| `bn` | বাংলা (Bengali) | Bengali |
-| `mr` | मराठी (Marathi) | Devanagari |
-| `kn` | ಕನ್ನಡ (Kannada) | Kannada |
+| Code | Language           | Script     |
+| ---- | ------------------ | ---------- |
+| `en` | English            | Latin      |
+| `hi` | हिंदी (Hindi)      | Devanagari |
+| `gu` | ગુજરાતી (Gujarati) | Gujarati   |
+| `ta` | தமிழ் (Tamil)      | Tamil      |
+| `te` | తెలుగు (Telugu)    | Telugu     |
+| `bn` | বাংলা (Bengali)    | Bengali    |
+| `mr` | मराठी (Marathi)    | Devanagari |
+| `kn` | ಕನ್ನಡ (Kannada)    | Kannada    |
 
 **Security:** Translation requests are validated via Zod schemas, limited to 5,000 characters, and restricted to the 8 approved language codes.
 
@@ -106,11 +108,12 @@ const model = genAI.getGenerativeModel({
 
 **Integration Points:**
 
-| File | Usage |
-|------|-------|
+| File                 | Usage                                                               |
+| -------------------- | ------------------------------------------------------------------- |
 | `src/app/layout.tsx` | Loads GA4 script via `next/script` with `afterInteractive` strategy |
 
 **Implementation:**
+
 ```typescript
 // src/app/layout.tsx — Google Analytics 4 Integration
 <Script
@@ -141,12 +144,13 @@ const model = genAI.getGenerativeModel({
 
 **Integration Points:**
 
-| File | Usage |
-|------|-------|
-| `Dockerfile` | Multi-stage build optimized for Cloud Run (standalone output, non-root user) |
-| `.dockerignore` | Excludes development files from production image |
+| File            | Usage                                                                        |
+| --------------- | ---------------------------------------------------------------------------- |
+| `Dockerfile`    | Multi-stage build optimized for Cloud Run (standalone output, non-root user) |
+| `.dockerignore` | Excludes development files from production image                             |
 
 **Docker Configuration:**
+
 ```dockerfile
 # Multi-stage build for minimal image size
 FROM node:20-alpine AS builder
@@ -165,6 +169,7 @@ CMD ["node", "server.js"]
 ```
 
 **Security Hardening:**
+
 - **Non-root execution** — runs as UID 1001
 - **Alpine Linux** — minimal attack surface
 - **Multi-stage build** — no dev dependencies in production
@@ -174,11 +179,11 @@ CMD ["node", "server.js"]
 
 ## 📋 Environment Variables Summary
 
-| Variable | Google Service | Required |
-|----------|---------------|----------|
-| `GEMINI_API_KEY` | Google Gemini AI | Optional (knowledge base fallback) |
-| `NEXT_PUBLIC_MAPS_API_KEY` | Google Maps Platform | Optional (deep links work without) |
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics 4 | Optional (tracking disabled without) |
+| Variable                        | Google Service       | Required                             |
+| ------------------------------- | -------------------- | ------------------------------------ |
+| `GEMINI_API_KEY`                | Google Gemini AI     | Optional (knowledge base fallback)   |
+| `NEXT_PUBLIC_MAPS_API_KEY`      | Google Maps Platform | Optional (deep links work without)   |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Google Analytics 4   | Optional (tracking disabled without) |
 
 All variables are documented in `.env.example` with inline comments.
 
@@ -197,19 +202,19 @@ graph TD
     Gemini --> |Response| APIRoute
     KB --> |Response| APIRoute
     APIRoute --> |JSON| ChatUI
-    
+
     User --> |Find Station| StationsUI[📍 Stations Page]
     StationsUI --> |Deep Link| GMaps[🗺️ Google Maps]
-    
+
     User --> |Switch Language| LangUI[🌐 Language Selector]
     LangUI --> |POST /api/translate| TranslateAPI[🔄 Cloud Translation]
-    
+
     User --> |Page View| GA4[📊 Google Analytics 4]
-    
+
     Deploy[🚀 Deployment] --> CloudRun[☁️ Google Cloud Run]
     CloudRun --> |Serves| User
 ```
 
 ---
 
-*Built with ❤️ for PromptWars Challenge 2 — showcasing the breadth and depth of Google Cloud integration.*
+_Built with ❤️ for PromptWars Challenge 2 — showcasing the breadth and depth of Google Cloud integration._

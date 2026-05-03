@@ -34,8 +34,18 @@ export default function TimelinePage() {
             className="text-gray-400 hover:text-white transition-colors focus-visible:ring-2 focus-visible:ring-indigo-400 rounded-lg p-1"
             aria-label="Back to home"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
             </svg>
           </Link>
           <div>
@@ -120,7 +130,12 @@ export default function TimelinePage() {
                     viewBox="0 0 24 24"
                     aria-hidden="true"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 </div>
 
@@ -145,7 +160,10 @@ export default function TimelinePage() {
                             key={i}
                             className="text-sm text-gray-400 flex items-start gap-2"
                           >
-                            <span className="text-indigo-400 mt-0.5" aria-hidden="true">
+                            <span
+                              className="text-indigo-400 mt-0.5"
+                              aria-hidden="true"
+                            >
                               •
                             </span>
                             {fact}
@@ -156,8 +174,19 @@ export default function TimelinePage() {
 
                     {/* Timeline info */}
                     <div className="mt-3 flex items-center gap-2 text-xs text-gray-500">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
                       </svg>
                       <span>{step.timeline}</span>
                     </div>
@@ -170,9 +199,7 @@ export default function TimelinePage() {
 
         {/* CTA at bottom */}
         <div className="text-center mt-12 animate-fade-in">
-          <p className="text-gray-400 mb-4">
-            Ready to test your knowledge?
-          </p>
+          <p className="text-gray-400 mb-4">Ready to test your knowledge?</p>
           <Link
             href="/quiz"
             className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-semibold rounded-xl transition-all duration-200 hover:scale-105 focus-visible:ring-2 focus-visible:ring-indigo-400"

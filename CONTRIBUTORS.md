@@ -11,16 +11,16 @@
 
 ## Project Timeline
 
-| Date | Milestone |
-|------|-----------|
-| 2026-05-02 | Project inception and architecture planning |
+| Date       | Milestone                                                |
+| ---------- | -------------------------------------------------------- |
+| 2026-05-02 | Project inception and architecture planning              |
 | 2026-05-02 | Core feature development (Timeline, Quiz, EVM Simulator) |
-| 2026-05-02 | AI Assistant integration with Google Gemini |
-| 2026-05-02 | Polling station finder with Google Maps |
-| 2026-05-02 | Security hardening (CSP, rate limiting, Zod validation) |
-| 2026-05-03 | 259 tests across 11 suites (100% pass rate) |
-| 2026-05-03 | Intelligent knowledge base fallback system |
-| 2026-05-03 | Cloud Run deployment and production launch |
+| 2026-05-02 | AI Assistant integration with Google Gemini              |
+| 2026-05-02 | Polling station finder with Google Maps                  |
+| 2026-05-02 | Security hardening (CSP, rate limiting, Zod validation)  |
+| 2026-05-03 | 259 tests across 11 suites (100% pass rate)              |
+| 2026-05-03 | Intelligent knowledge base fallback system               |
+| 2026-05-03 | Cloud Run deployment and production launch               |
 
 ## Development Environment
 
@@ -45,4 +45,4 @@ Competition: PromptWars Virtual Challenge 2 (Hack2Skill + Google)
 
 ---
 
-*This project was built from scratch during the PromptWars Virtual Challenge 2 hackathon. The complete git history with timestamps is available in the repository.*
+_This project was built from scratch during the PromptWars Virtual Challenge 2 hackathon. The complete git history with timestamps is available in the repository._

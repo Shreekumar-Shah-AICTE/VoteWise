@@ -47,8 +47,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       // Graceful fallback: return original text with a notice
       return NextResponse.json({
         translatedText: text,
-        notice:
-          "Translation API key not configured. Showing original text.",
+        notice: "Translation API key not configured. Showing original text.",
       });
     }
 
@@ -84,7 +83,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       }
     );
   } catch (error: unknown) {
-    const errorMessage: string = error instanceof Error ? error.message : "Unknown translation error";
+    const errorMessage: string =
+      error instanceof Error ? error.message : "Unknown translation error";
     console.error("Translation API error:", errorMessage);
 
     return NextResponse.json(

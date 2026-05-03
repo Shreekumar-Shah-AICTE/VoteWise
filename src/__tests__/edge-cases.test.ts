@@ -26,7 +26,7 @@ describe("Edge Cases: XSS Attack Payloads", () => {
   });
 
   it("should neutralize img onerror injection", () => {
-    const result = sanitizeInput('<img src=x onerror=alert(1)>');
+    const result = sanitizeInput("<img src=x onerror=alert(1)>");
     expect(result).not.toContain("<img");
     expect(result).toContain("&lt;img");
   });

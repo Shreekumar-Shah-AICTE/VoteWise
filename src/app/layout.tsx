@@ -52,7 +52,9 @@ export const metadata: Metadata = {
     description:
       "Your interactive guide to understanding India's democratic election process.",
     type: "website",
-    images: [{ url: "/logo.png", width: 512, height: 512, alt: "VoteWise Logo" }],
+    images: [
+      { url: "/logo.png", width: 512, height: 512, alt: "VoteWise Logo" },
+    ],
   },
 };
 
@@ -81,12 +83,21 @@ export default function RootLayout({
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#6366f1" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta
+          name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent"
+        />
 
         {/* Authorship & Attribution */}
         <meta name="author" content="Shreekumar Shah" />
-        <meta name="creator" content="Shreekumar Shah — Kaushalya, The Skill University" />
-        <meta name="publisher" content="Shreekumar Shah (parzivalarts@gmail.com)" />
+        <meta
+          name="creator"
+          content="Shreekumar Shah — Kaushalya, The Skill University"
+        />
+        <meta
+          name="publisher"
+          content="Shreekumar Shah (parzivalarts@gmail.com)"
+        />
 
         {/* SEO: JSON-LD Structured Data for rich search results */}
         <script

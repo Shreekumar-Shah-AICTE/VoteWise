@@ -79,8 +79,9 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     const { message, history } = validation.data;
 
     // Strategy 1: Try Gemini AI if API key is available
-    const apiKey = process.env.NEXT_PUBLIC_GEMINI_API_KEY || process.env.GEMINI_API_KEY;
-    
+    const apiKey =
+      process.env.NEXT_PUBLIC_GEMINI_API_KEY || process.env.GEMINI_API_KEY;
+
     if (apiKey && apiKey.length > 0) {
       try {
         // Google Services: Initialize Gemini AI model
@@ -108,19 +109,27 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
         );
       } catch (geminiError: unknown) {
         // Log warning but continue to fallback — ensures resilient user experience
-        const errorMessage = geminiError instanceof Error ? geminiError.message : "Unknown Gemini error";
-        console.warn("Gemini API failed, falling back to knowledge base:", errorMessage);
+        const errorMessage =
+          geminiError instanceof Error
+            ? geminiError.message
+            : "Unknown Gemini error";
+        console.warn(
+          "Gemini API failed, falling back to knowledge base:",
+          errorMessage
+        );
         // Fall through to knowledge base
       }
     }
 
     // Strategy 2: Knowledge base fallback
     const kbAnswer = searchKnowledgeBase(message);
-    
+
     if (kbAnswer) {
       return NextResponse.json(
-        { 
-          response: kbAnswer + "\n\n---\n*📚 This answer is from VoteWise's built-in knowledge base. For more detailed and personalized responses, the Gemini AI integration provides even richer answers when configured.*"
+        {
+          response:
+            kbAnswer +
+            "\n\n---\n*📚 This answer is from VoteWise's built-in knowledge base. For more detailed and personalized responses, the Gemini AI integration provides even richer answers when configured.*",
         },
         {
           status: 200,
@@ -134,7 +143,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     // Strategy 3: No match found — provide a helpful, context-aware response
     return NextResponse.json(
       {
-        response: getSmartFallback(message)
+        response: getSmartFallback(message),
       },
       {
         status: 200,
@@ -145,7 +154,8 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     );
   } catch (error: unknown) {
     // Log error with context for debugging
-    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    const errorMessage =
+      error instanceof Error ? error.message : "Unknown error";
     console.error("Chat API error:", errorMessage);
 
     // Graceful error handling with user-friendly message

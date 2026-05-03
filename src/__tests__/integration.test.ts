@@ -129,7 +129,7 @@ describe("Integration: Cross-Module Consistency", () => {
 
   it("should import Zod in validation module", () => {
     const validation = readFile("src/lib/validation.ts");
-    expect(validation).toContain("from \"zod\"");
+    expect(validation).toContain('from "zod"');
   });
 
   it("should import generative-ai in gemini module", () => {
