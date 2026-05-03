@@ -7,6 +7,7 @@
  */
 
 import Link from "next/link";
+import Image from "next/image";
 
 /** Navigation features for the homepage */
 const features = [
@@ -87,12 +88,18 @@ export default function HomePage() {
 
         {/* Hero Content */}
         <div className="relative z-10 text-center max-w-4xl mx-auto animate-fade-in">
-          {/* App icon */}
+          {/* App Logo */}
           <div
-            className="text-7xl mb-6 animate-pulse-glow inline-block rounded-2xl p-4"
-            aria-hidden="true"
+            className="mb-6 animate-pulse-glow inline-block rounded-2xl p-2"
           >
-            🗳️
+            <Image
+              src="/logo.png"
+              alt="VoteWise Logo"
+              width={120}
+              height={120}
+              className="rounded-2xl"
+              priority
+            />
           </div>
 
           {/* Title */}

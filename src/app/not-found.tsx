@@ -7,6 +7,7 @@
  */
 
 import Link from "next/link";
+import Image from "next/image";
 
 /**
  * Not Found page component.
@@ -25,9 +26,9 @@ export default function NotFound() {
         aria-hidden="true"
       />
 
-      {/* Error icon */}
-      <div className="text-8xl mb-6" aria-hidden="true">
-        🗳️
+      {/* Logo */}
+      <div className="mb-6">
+        <Image src="/logo.png" alt="VoteWise" width={96} height={96} className="rounded-2xl" />
       </div>
 
       {/* Error message */}

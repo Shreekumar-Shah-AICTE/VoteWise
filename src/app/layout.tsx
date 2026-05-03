@@ -38,11 +38,16 @@ export const metadata: Metadata = {
     "AI assistant",
   ],
   authors: [{ name: "Shreekumar Shah" }],
+  icons: {
+    icon: "/logo.png",
+    apple: "/icons/icon-192.png",
+  },
   openGraph: {
     title: "VoteWise — AI-Powered Election Education Platform",
     description:
       "Your interactive guide to understanding India's democratic election process.",
     type: "website",
+    images: [{ url: "/logo.png", width: 512, height: 512, alt: "VoteWise Logo" }],
   },
 };
 

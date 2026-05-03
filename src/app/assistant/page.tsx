@@ -10,6 +10,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import type { ChatMessage } from "@/types";
 import { generateId, sanitizeInput } from "@/lib/utils";
 
@@ -158,7 +159,7 @@ export default function AssistantPage() {
           {/* Welcome message when chat is empty */}
           {messages.length === 0 && (
             <div className="text-center py-12 animate-fade-in">
-              <div className="text-6xl mb-4" aria-hidden="true">🗳️</div>
+              <Image src="/logo.png" alt="VoteWise" width={64} height={64} className="rounded-xl" />
               <h2 className="text-2xl font-bold mb-2">Welcome to VoteWise AI</h2>
               <p className="text-gray-400 mb-8 max-w-md mx-auto">
                 I&apos;m your non-partisan election education assistant. Ask me
