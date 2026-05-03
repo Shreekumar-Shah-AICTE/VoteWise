@@ -92,8 +92,9 @@ The AI assistant uses a carefully crafted system instruction that enforces:
 | ✅ | **Voter Readiness Check** | 10-question assessment with category-wise scoring and personalized recommendations | — |
 | 🌐 | **Multi-Language Ready** | Architecture supports 8 Indian languages via Google Cloud Translation API | **Google Translate** |
 | 🎨 | **Dark Mode + Tricolor** | Premium dark election-night aesthetic with India tricolor (🟠⚪🟢) gradient accents | — |
-| ♿ | **Full Accessibility** | WCAG 2.1 AA compliant: skip-nav, ARIA landmarks, keyboard navigation, screen reader optimized | — |
+| ♿ | **Full Accessibility** | WCAG 2.1 AA compliant: skip-nav, `prefers-reduced-motion`, `prefers-contrast`, keyboard nav | — |
 | 🛡️ | **Enterprise Security** | CSP headers, input validation (Zod), rate limiting, XSS sanitization, non-root Docker | — |
+| 📊 | **User Analytics** | Usage and event tracking integration across the platform | **Google Analytics 4** |
 
 ---
 
@@ -190,7 +191,7 @@ User types question
 
 ## 🔌 Google Services Used
 
-VoteWise integrates **4 Google Cloud services** to deliver a comprehensive election education experience:
+VoteWise integrates **5 Google Cloud services** to deliver a comprehensive election education experience:
 
 ### 1. 🤖 Google Gemini AI (`@google/generative-ai`)
 - Powers the conversational AI election assistant
@@ -218,6 +219,11 @@ VoteWise integrates **4 Google Cloud services** to deliver a comprehensive elect
 - Non-root user execution for security
 - Auto-scaling based on request volume
 - **File:** [`Dockerfile`](Dockerfile)
+
+### 5. 📊 Google Analytics 4
+- Implemented via `gtag.js` for lightweight client-side event tracking
+- Configured securely within `layout.tsx` to monitor user engagement metrics
+- **File:** [`src/app/layout.tsx`](src/app/layout.tsx)
 
 ---
 
@@ -293,6 +299,8 @@ VoteWise is designed to be WCAG 2.1 AA compliant and usable by everyone:
 - ✅ **Focus Indicators** — Visible `focus-visible` ring on all interactive elements (never removed)
 - ✅ **Screen Reader Announcements** — `sr-only` role indicators and `aria-live` regions for chat messages
 - ✅ **Color Contrast** — All text meets 4.5:1 minimum contrast ratio against dark backgrounds
+- ✅ **Reduced Motion** — `@media (prefers-reduced-motion: reduce)` immediately disables all UI animations
+- ✅ **High Contrast** — `@media (prefers-contrast: more)` and `forced-colors` Windows mode support
 - ✅ **Form Labels** — Every input has an associated `<label>` with `htmlFor` binding
 - ✅ **Progressive Enhancement** — Core content accessible without JavaScript where possible
 - ✅ **Multi-Language** — Architecture supports 8 Indian languages for linguistic accessibility
@@ -430,10 +438,10 @@ docker run -p 8080:8080 -e NEXT_PUBLIC_GEMINI_API_KEY=your_key votewise
 |:----------|:----------------|:---------|
 | **Scope** | Basic chatbot | 6 interactive tools in one platform |
 | **Interactivity** | Text Q&A only | EVM simulator, quiz with badges, readiness assessment |
-| **Google Services** | 1 (Gemini only) | 4 (Gemini + Maps + Translate + Cloud Run) |
-| **Testing** | None | 72 passing tests across 5 test suites |
+| **Google Services** | 1 (Gemini only) | 5 (Gemini + Maps + Translate + Analytics + Cloud Run) |
+| **Testing** | None | 106 passing tests across 5 test suites |
 | **Security** | Minimal | CSP headers, rate limiting, Zod validation, XSS sanitization |
-| **Accessibility** | Not considered | Full WCAG 2.1 AA with ARIA, keyboard nav, skip-nav |
+| **Accessibility** | Not considered | Full WCAG 2.1 AA with ARIA, `prefers-reduced-motion`, high-contrast |
 | **Code Quality** | JavaScript, no types | TypeScript strict mode, ESLint, Prettier, JSDoc |
 | **Deployment** | Basic hosting | Multi-stage Docker on Cloud Run with non-root user |
 
