@@ -20,9 +20,12 @@ import { searchKnowledgeBase, getSmartFallback } from "@/data/knowledge-base";
  * Rate limiting configuration
  * Security: Prevents abuse of the AI endpoint
  */
-const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
-const MAX_REQUESTS = 20; // Max 20 requests per minute
-const requestLog = new Map<string, number[]>();
+/** Rate limit window duration in milliseconds */
+const RATE_LIMIT_WINDOW: number = 60 * 1000;
+/** Maximum number of requests allowed per window */
+const MAX_REQUESTS: number = 20;
+/** In-memory request log for rate limiting */
+const requestLog: Map<string, number[]> = new Map();
 
 /**
  * Simple in-memory rate limiter.
@@ -32,10 +35,12 @@ const requestLog = new Map<string, number[]>();
  * @returns Whether the request is within rate limits
  */
 function checkRateLimit(ip: string): boolean {
-  const now = Date.now();
-  const windowStart = now - RATE_LIMIT_WINDOW;
-  const requests = requestLog.get(ip) || [];
-  const recentRequests = requests.filter((t) => t > windowStart);
+  const now: number = Date.now();
+  const windowStart: number = now - RATE_LIMIT_WINDOW;
+  const requests: number[] = requestLog.get(ip) ?? [];
+  const recentRequests: number[] = requests.filter(
+    (timestamp: number) => timestamp > windowStart
+  );
   requestLog.set(ip, [...recentRequests, now]);
   return recentRequests.length < MAX_REQUESTS;
 }
@@ -45,11 +50,11 @@ function checkRateLimit(ip: string): boolean {
  * Strategy: Try Gemini AI first → Fall back to knowledge base → Graceful error.
  * This ensures judges ALWAYS see working responses, even without an API key.
  */
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     // Security: Rate limiting check
-    const clientIp =
-      request.headers.get("x-forwarded-for") || "unknown";
+    const clientIp: string =
+      request.headers.get("x-forwarded-for") ?? "unknown";
     if (!checkRateLimit(clientIp)) {
       return NextResponse.json(
         { error: "Rate limit exceeded. Please wait a moment." },
@@ -101,8 +106,10 @@ export async function POST(request: NextRequest) {
             },
           }
         );
-      } catch (geminiError) {
-        console.warn("Gemini API failed, falling back to knowledge base:", geminiError);
+      } catch (geminiError: unknown) {
+        // Log warning but continue to fallback — ensures resilient user experience
+        const errorMessage = geminiError instanceof Error ? geminiError.message : "Unknown Gemini error";
+        console.warn("Gemini API failed, falling back to knowledge base:", errorMessage);
         // Fall through to knowledge base
       }
     }
@@ -136,8 +143,10 @@ export async function POST(request: NextRequest) {
         },
       }
     );
-  } catch (error) {
-    console.error("Chat API error:", error);
+  } catch (error: unknown) {
+    // Log error with context for debugging
+    const errorMessage = error instanceof Error ? error.message : "Unknown error";
+    console.error("Chat API error:", errorMessage);
 
     // Graceful error handling with user-friendly message
     return NextResponse.json(

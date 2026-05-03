@@ -12,7 +12,7 @@ VoteWise employs **7 layers of security** following the Zero Trust model:
 Layer 1: HTTP Security Headers (CSP, HSTS, X-Frame-Options)
 Layer 2: Input Validation (Zod runtime schemas)
 Layer 3: XSS Prevention (HTML entity escaping)
-Layer 4: Rate Limiting (20 req/min per IP)
+Layer 4: Rate Limiting (per-IP throttling)
 Layer 5: API Key Protection (environment variables, never hardcoded)
 Layer 6: Docker Hardening (non-root user, Alpine image, multi-stage build)
 Layer 7: Cache Control (no-store on sensitive API responses)
@@ -82,10 +82,10 @@ All user-generated content is sanitized via `sanitizeInput()` in `src/lib/utils.
 
 The AI chat endpoint (`POST /api/chat`) implements per-IP rate limiting:
 
-- **Window:** 60 seconds
-- **Max Requests:** 20 per IP per window
+- **Window:** Configurable sliding window
+- **Max Requests:** Configurable per-IP limit
 - **Response:** HTTP 429 `Too Many Requests`
-- **Storage:** In-memory Map (resets on server restart)
+- **Storage:** In-memory (resets on server restart)
 - **IP Detection:** `x-forwarded-for` header (Cloud Run compatible)
 
 ---
@@ -108,7 +108,7 @@ The production `Dockerfile` implements container hardening:
 
 1. **Multi-stage build** — Only production artifacts in final image (no dev dependencies)
 2. **Alpine base** — Minimal OS footprint (~5MB vs ~100MB for Debian)
-3. **Non-root user** — Runs as `nextjs` (UID 1001), not root
+3. **Non-root user** — Runs as unprivileged user, not root
 4. **Standalone output** — Next.js standalone mode for minimal file inclusion
 5. **Read-only where possible** — Application files owned by root, executed by non-root
 

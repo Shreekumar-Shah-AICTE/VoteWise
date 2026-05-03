@@ -17,7 +17,7 @@ import { translateRequestSchema } from "@/lib/validation";
  *
  * Google Services: Uses Google Cloud Translation API v2.
  */
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest): Promise<NextResponse> {
   try {
     // Security: Validate input with Zod schema
     const body = await request.json();
@@ -83,8 +83,9 @@ export async function POST(request: NextRequest) {
         },
       }
     );
-  } catch (error) {
-    console.error("Translation API error:", error);
+  } catch (error: unknown) {
+    const errorMessage: string = error instanceof Error ? error.message : "Unknown translation error";
+    console.error("Translation API error:", errorMessage);
 
     return NextResponse.json(
       {

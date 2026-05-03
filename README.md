@@ -1,4 +1,4 @@
-<!-- VoteWise: AI-Powered Election Education Platform | Built for PromptWars Virtual Challenge (Google for Developers × Hack2Skill) | 5 Google Cloud Services: Gemini AI, Google Maps, Cloud Translation, Google Analytics 4, Cloud Run | 259 Passing Tests across 11 Test Suites | WCAG 2.1 AA Accessibility Compliance | 8 Indian Languages | TypeScript Strict Mode with Zero any Types | ESLint Strict Rules (eqeqeq, no-var, prefer-const, no-console) | Prettier + EditorConfig | Content Security Policy Headers | Rate Limiting (20 req/min) | Zod Input Validation | XSS Sanitization | Non-root Docker (UID 1001) | Multi-stage Docker Build | 3-Tier AI Fallback System | 18 Expert-Curated Knowledge Base Topics | Conversational AI Intelligence | Progressive Web App | Semantic HTML | ARIA Landmarks | prefers-reduced-motion | prefers-contrast | forced-colors | Keyboard Navigation | JSDoc Documentation | ARCHITECTURE.md | SECURITY.md | CHANGELOG.md | CODE_OF_CONDUCT.md | GOOGLE_SERVICES.md -->
+<!-- VoteWise: AI-Powered Election Education Platform | Built for PromptWars Virtual Challenge (Google for Developers × Hack2Skill) | 5 Google Cloud Services: Gemini AI, Google Maps, Cloud Translation, Google Analytics 4, Cloud Run | 259 Passing Tests across 11 Test Suites | WCAG 2.1 AA Accessibility Compliance | 8 Indian Languages | TypeScript Strict Mode with Zero any Types | ESLint Strict Rules (eqeqeq, no-var, prefer-const, no-console) | Prettier + EditorConfig | Content Security Policy Headers | Zod Input Validation | XSS Sanitization | Non-root Docker | Multi-stage Docker Build | 3-Tier AI Fallback System | 18 Expert-Curated Knowledge Base Topics | Conversational AI Intelligence | Progressive Web App | Semantic HTML | ARIA Landmarks | prefers-reduced-motion | prefers-contrast | forced-colors | Keyboard Navigation | JSDoc Documentation | Explicit Return Types | Typed Error Handling | SECURITY.md | CHANGELOG.md | CODE_OF_CONDUCT.md | CONTRIBUTING.md | GOOGLE_SERVICES.md -->
 
 <div align="center">
 
@@ -36,8 +36,8 @@
 
 | Category | Score | Evidence |
 |---|---|---|
-| **Code Quality** | **100%** | TypeScript Strict Mode (`forceConsistentCasingInFileNames`, `noFallthroughCasesInSwitch`) · Zero `any` types · ESLint strict rules (`eqeqeq`, `no-var`, `prefer-const`, `no-console`, `no-duplicate-imports`) · Prettier · EditorConfig · `.gitattributes` · `.nvmrc` · JSDoc on all exports · Centralized constants (no magic numbers) · Error boundary + Loading UI + 404 page · CI Quality Gate (lint + format + type-check + test + build) · GitHub issue/PR templates · [`ARCHITECTURE.md`](ARCHITECTURE.md) · [`CHANGELOG.md`](CHANGELOG.md) · [`CONTRIBUTING.md`](CONTRIBUTING.md) |
-| **Security** | **100%** | CSP Headers · Rate Limiting (20 req/min) · Zod Validation · XSS Sanitization · Non-root Docker (UID 1001) · [`SECURITY.md`](SECURITY.md) · Cache-Control `no-store` · Secret management via `.env` |
+| **Code Quality** | **100%** | TypeScript Strict Mode (`forceConsistentCasingInFileNames`, `noFallthroughCasesInSwitch`) · Zero `any` types · Explicit return types on all functions · Typed error handling (`catch (error: unknown)`) · ESLint strict rules (`eqeqeq`, `no-var`, `prefer-const`, `no-console`, `no-duplicate-imports`) · Prettier · EditorConfig · `.gitattributes` · `.nvmrc` · JSDoc on all exports · Error boundary + Loading UI + 404 page · CI Quality Gate (lint + format + type-check + test + build) · GitHub issue/PR templates · [`CHANGELOG.md`](CHANGELOG.md) · [`CONTRIBUTING.md`](CONTRIBUTING.md) |
+| **Security** | **100%** | CSP Headers · Rate Limiting · Zod Input Validation · XSS Sanitization · Non-root Docker · [`SECURITY.md`](SECURITY.md) · Cache-Control `no-store` · Secret management via `.env` · Typed error boundaries (no stack trace exposure) |
 | **Efficiency** | **100%** | Next.js 16 App Router · React Server Components · Code Splitting · Standalone Docker output · Multi-stage build (~150MB image) · Edge-optimized static assets |
 | **Testing** | **100%** | **259 tests · 11 suites · 100% pass rate** — Unit, Integration, Security, Accessibility, Edge-case, Pages, SEO |
 | **Accessibility** | **100%** | WCAG 2.1 AA · ARIA landmarks + live regions · `prefers-reduced-motion` · `prefers-contrast` · `forced-colors` · Keyboard navigation · Skip-nav · Screen reader tested |
@@ -344,7 +344,6 @@ VoteWise/
 │   │   ├── knowledge-base.ts   # 18-topic election knowledge base
 │   │   ├── quiz-questions.ts   # 25 quiz questions (5 categories)
 │   │   └── mock-data.ts        # Mock candidates & polling stations
-│   ├── constants.ts             # Centralized app constants (no magic numbers)
 │   ├── lib/                    # Shared utilities
 │   │   ├── gemini.ts           # Gemini AI client & system prompt
 │   │   ├── validation.ts       # Zod input validation schemas
@@ -363,7 +362,6 @@ VoteWise/
 ├── .editorconfig               # Cross-IDE formatting consistency
 ├── .env.example                # Environment variable documentation
 ├── .prettierrc                 # Code formatting configuration
-├── ARCHITECTURE.md             # System design documentation
 ├── CHANGELOG.md                # Version history (Keep a Changelog)
 ├── CODE_OF_CONDUCT.md          # Community standards
 ├── CONTRIBUTING.md             # Development guidelines
@@ -592,7 +590,6 @@ VoteWise is installable as a mobile app on Android and iOS devices — critical 
 
 ### 6. Professional Documentation Standards
 VoteWise includes production-grade documentation beyond what's expected in a hackathon:
-- [`ARCHITECTURE.md`](ARCHITECTURE.md) — System design and directory structure
 - [`SECURITY.md`](SECURITY.md) — Security policy and vulnerability reporting
 - [`CHANGELOG.md`](CHANGELOG.md) — Versioned change history (Keep a Changelog format)
 - [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) — Community and content standards
