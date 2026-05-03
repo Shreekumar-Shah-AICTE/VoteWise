@@ -10,6 +10,7 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { Inter } from "next/font/google";
+import LanguageSelector from "@/components/LanguageSelector";
 import "./globals.css";
 
 // Google Services: Using Inter from Google Fonts — a highly legible, accessible sans-serif font
@@ -125,6 +126,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        <LanguageSelector />
         {children}
       </body>
     </html>

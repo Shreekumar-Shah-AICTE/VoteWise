@@ -204,14 +204,15 @@ export default function AssistantPage() {
             </div>
           ))}
 
-          {/* Loading indicator */}
+          {/* Loading Skeleton */}
           {isLoading && (
-            <div className="flex justify-start animate-fade-in">
-              <div className="glass-card rounded-2xl rounded-bl-sm px-5 py-3">
-                <div className="flex gap-1.5" aria-label="Assistant is typing">
-                  <div className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce" style={{ animationDelay: "0ms" }} />
-                  <div className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce" style={{ animationDelay: "150ms" }} />
-                  <div className="w-2 h-2 bg-indigo-400 rounded-full animate-bounce" style={{ animationDelay: "300ms" }} />
+            <div className="flex justify-start animate-fade-in w-full max-w-[85%] md:max-w-[70%]">
+              <div className="glass-card rounded-2xl rounded-bl-sm px-5 py-4 w-full">
+                <span className="sr-only">Assistant is typing...</span>
+                <div className="space-y-3">
+                  <div className="h-4 bg-white/10 rounded-full w-3/4 animate-pulse" />
+                  <div className="h-4 bg-white/10 rounded-full w-full animate-pulse" style={{ animationDelay: "150ms" }} />
+                  <div className="h-4 bg-white/10 rounded-full w-5/6 animate-pulse" style={{ animationDelay: "300ms" }} />
                 </div>
               </div>
             </div>

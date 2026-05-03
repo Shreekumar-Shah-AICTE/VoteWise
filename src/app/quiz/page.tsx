@@ -7,10 +7,11 @@
 
 "use client";
 
-import { useState, useMemo, useCallback } from "react";
+import { useState, useMemo, useCallback, useEffect } from "react";
 import Link from "next/link";
 import { quizQuestions } from "@/data/quiz-questions";
 import { shuffleArray, getDifficultyColor } from "@/lib/utils";
+import Toast from "@/components/Toast";
 
 export default function QuizPage() {
   const shuffledQuestions = useMemo(() => shuffleArray(quizQuestions).slice(0, 15), []);
@@ -19,6 +20,7 @@ export default function QuizPage() {
   const [answered, setAnswered] = useState(false);
   const [score, setScore] = useState(0);
   const [done, setDone] = useState(false);
+  const [showToast, setShowToast] = useState(false);
   const q = shuffledQuestions[idx];
 
   const handleAnswer = useCallback((i: number) => {
@@ -43,8 +45,20 @@ export default function QuizPage() {
     : pct >= 50 ? { e: "📚", t: "Active Learner", c: "text-blue-400" }
     : { e: "🌱", t: "Civic Explorer", c: "text-gray-400" };
 
+  useEffect(() => {
+    if (done) {
+      setShowToast(true);
+    }
+  }, [done]);
+
   if (done) return (
     <main id="main-content" className="min-h-screen flex items-center justify-center px-4">
+      <Toast 
+        isVisible={showToast} 
+        onClose={() => setShowToast(false)} 
+        message={`Badge Earned: ${badge.t}!`} 
+        type={pct >= 70 ? "success" : "info"} 
+      />
       <div className="glass-card p-8 max-w-md w-full text-center animate-fade-in">
         <div className="text-6xl mb-4">{badge.e}</div>
         <h1 className="text-2xl font-bold mb-1">Quiz Complete!</h1>
