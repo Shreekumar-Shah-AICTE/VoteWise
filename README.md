@@ -20,7 +20,9 @@
 
 **Your interactive guide to understanding India's democratic election process — learn, quiz yourself, and experience mock voting.**
 
-[Live Demo](#-deployment) · [Features](#-key-features) · [Google Services](#-google-cloud-services-5-integrated) · [Screenshots](#-screenshots) · [Quick Start](#-quick-start)
+### 🌐 [**Live Demo → https://votewise-1020647632294.us-central1.run.app**](https://votewise-1020647632294.us-central1.run.app)
+
+[Features](#-key-features) · [Google Services](#-google-cloud-services-5-integrated) · [Screenshots](#-screenshots) · [Quick Start](#-quick-start)
 
 ---
 
@@ -408,24 +410,46 @@ npm run type-check   # TypeScript type checking
 
 ## ☁️ Deployment
 
-### Google Cloud Run
+### 🌐 Live Production URL
+
+**[https://votewise-1020647632294.us-central1.run.app](https://votewise-1020647632294.us-central1.run.app)**
+
+Deployed on **Google Cloud Run** — serverless, auto-scaling, containerized deployment.
+
+### Deploy Your Own Instance
 
 ```bash
-# Build and deploy to Cloud Run
-gcloud builds submit --tag gcr.io/PROJECT_ID/votewise
+# 1. Authenticate with Google Cloud
+gcloud auth login
+
+# 2. Set your project
+gcloud config set project YOUR_PROJECT_ID
+
+# 3. Enable required APIs
+gcloud services enable run.googleapis.com cloudbuild.googleapis.com artifactregistry.googleapis.com
+
+# 4. Deploy from source (builds Docker image in the cloud)
 gcloud run deploy votewise \
-  --image gcr.io/PROJECT_ID/votewise \
-  --platform managed \
-  --region asia-south1 \
+  --source . \
+  --region us-central1 \
   --allow-unauthenticated \
-  --set-env-vars "NEXT_PUBLIC_GEMINI_API_KEY=your_key"
+  --port 8080 \
+  --memory 1Gi
 ```
 
 ### Docker (Local)
 
 ```bash
 docker build -t votewise .
-docker run -p 8080:8080 -e NEXT_PUBLIC_GEMINI_API_KEY=your_key votewise
+docker run -p 8080:8080 votewise
+```
+
+### Updating the Deployment
+
+After making code changes, simply re-run the deploy command:
+
+```bash
+gcloud run deploy votewise --source . --region us-central1 --allow-unauthenticated
 ```
 
 ---
