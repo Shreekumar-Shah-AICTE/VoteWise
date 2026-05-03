@@ -20,12 +20,18 @@ VoteWise follows a **multi-layered testing strategy** inspired by the Testing Tr
 
 | Suite | File | Tests | Coverage |
 |:------|:-----|:-----:|:---------|
-| **Integration** | `src/__tests__/integration.test.ts` | 28 | Project structure (28 file checks), package.json integrity, TypeScript config, cross-module consistency, deployment readiness, Google Services configuration |
-| **Security** | `src/__tests__/security.test.ts` | 22 | HTTP security headers (CSP, HSTS, X-Frame-Options), Zod input validation, XSS prevention, rate limiting, API key protection, Docker hardening, API response headers |
-| **Edge Cases** | `src/__tests__/edge-cases.test.ts` | 23 | XSS attack payloads (script injection, img onerror, event handlers, nested tags, javascript: URLs), input boundary values, numeric overflow, array operations, Unicode/Hindi/Gujarati text, translation validation, ID uniqueness, text truncation |
-| **Accessibility** | `src/__tests__/accessibility.test.ts` | 21 | Document structure (lang, skip-nav, fonts), homepage ARIA landmarks, focus & keyboard navigation, `prefers-reduced-motion`, `prefers-contrast`, `forced-colors`, AI assistant a11y, quiz a11y, color contrast ratios |
-| **Utilities** | `src/__tests__/utils.test.ts` | 12 | `generateId`, `sanitizeInput`, `clamp`, `formatPercentage`, `shuffleArray`, `timeAgo`, `getDifficultyColor`, `truncateText` |
-| **Total** | **5 suites** | **106** | **100% pass rate** |
+| **Integration** | `src/__tests__/integration.test.ts` | 54 | Project structure, package.json integrity, TypeScript config, cross-module consistency, deployment readiness, Google Services configuration |
+| **Edge Cases** | `src/__tests__/edge-cases.test.ts` | 34 | XSS attack payloads, boundaries, numeric overflow, array operations, Unicode/Hindi/Gujarati, translation validation, ID uniqueness, text truncation |
+| **Pages** | `src/__tests__/pages.test.ts` | 32 | Verification of all App Router pages, exports, 404/Error boundaries, and ARIA landmarks |
+| **Security** | `src/__tests__/security.test.ts` | 30 | HTTP security headers, Zod input validation, XSS prevention, rate limiting, API key protection, Docker hardening, API response headers |
+| **Accessibility** | `src/__tests__/accessibility.test.ts` | 29 | Document structure, homepage ARIA landmarks, focus & keyboard navigation, reduced motion, contrast |
+| **Utilities** | `src/__tests__/utils.test.ts` | 25 | Core data and text manipulation functions |
+| **Validation** | `src/__tests__/validation.test.ts` | 14 | Zod runtime schema coverage |
+| **Data Integrity** | `src/__tests__/data.test.ts` | 13 | Election steps, quiz data, candidates |
+| **Languages** | `src/__tests__/languages.test.ts` | 11 | Supported language configuration and lookups |
+| **Gemini AI** | `src/__tests__/gemini.test.ts` | 9 | System instructions and guardrails |
+| **SEO** | `src/__tests__/seo.test.ts` | 8 | PWA manifest, JSON-LD structured data, robots.txt |
+| **Total** | **11 suites** | **259** | **100% pass rate** |
 
 ---
 

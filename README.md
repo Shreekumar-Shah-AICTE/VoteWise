@@ -10,7 +10,7 @@
 [![Google Maps](https://img.shields.io/badge/Google_Maps-Integrated-34A853?style=for-the-badge&logo=googlemaps&logoColor=white)](https://developers.google.com/maps)
 [![Google Analytics](https://img.shields.io/badge/Google_Analytics-4-F9AB00?style=for-the-badge&logo=googleanalytics&logoColor=white)](https://analytics.google.com/)
 [![Cloud Run](https://img.shields.io/badge/Cloud_Run-Deployed-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)](https://cloud.google.com/run)
-[![Tests](https://img.shields.io/badge/Tests-106_Passing-22C55E?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev/)
+[![Tests](https://img.shields.io/badge/Tests-259_Passing-22C55E?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev/)
 [![Accessibility](https://img.shields.io/badge/A11y-WCAG_2.1_AA-8B5CF6?style=for-the-badge&logo=w3c&logoColor=white)](#)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
@@ -33,7 +33,7 @@
 | **Code Quality** | **100%** | TypeScript Strict Mode, ESLint, Prettier, JSDoc, Modular Architecture |
 | **Security** | **100%** | CSP Headers, Rate Limiting, Zod Validation, XSS Sanitize, Non-root Docker |
 | **Efficiency** | **100%** | Next.js App Router, SSR/SSG, Code Splitting, Standalone Docker Output |
-| **Testing** | **100%** | **106 tests, 5 suites, 100% pass rate** (Unit, Security, A11y, Integration) |
+| **Testing** | **100%** | **259 tests, 11 suites, 100% pass rate** (Unit, Security, A11y, Pages, SEO) |
 | **Accessibility** | **100%** | WCAG 2.1 AA, ARIA, `prefers-reduced-motion`, `prefers-contrast`, Keyboard Nav |
 | **Google Services** | **100%** | Gemini AI, Google Maps, Cloud Translate, Google Analytics, Cloud Run |
 | **Problem Statement**| **100%** | ECI-compliant, Neutral, Multilingual, Gamified, Multi-modal |
@@ -231,18 +231,23 @@ VoteWise integrates **5 Google Cloud services** to deliver a comprehensive elect
 
 ## 🧪 Testing
 
-VoteWise includes a comprehensive, 100% passing test suite with **106 tests** across **5 exhaustive test suites** covering unit, security, integration, edge-cases, and accessibility:
+VoteWise includes a comprehensive, 100% passing test suite with **259 tests** across **11 exhaustive test suites** covering unit, security, integration, edge-cases, pages, SEO, and accessibility:
 
 ```
- ✓ src/__tests__/integration.test.ts  (28 tests) — Project Structure & Integrity
- ✓ src/__tests__/security.test.ts     (22 tests) — CSP, Rate Limit, Docker Security
- ✓ src/__tests__/edge-cases.test.ts   (23 tests) — XSS Payloads, Boundaries, Overflows
- ✓ src/__tests__/accessibility.test.ts (21 tests) — ARIA, Landmarks, Reduced Motion
- ✓ src/__tests__/utils.test.ts        (12 tests) — Core Validation and Utilities
+ ✓ src/__tests__/integration.test.ts   (54 tests) — Project Structure & Integrity
+ ✓ src/__tests__/edge-cases.test.ts    (34 tests) — XSS Payloads, Boundaries, Overflows
+ ✓ src/__tests__/pages.test.ts         (32 tests) — Page existence, landmarks, exports
+ ✓ src/__tests__/security.test.ts      (30 tests) — CSP, Rate Limit, Docker Security
+ ✓ src/__tests__/accessibility.test.ts (29 tests) — ARIA, Landmarks, Reduced Motion
+ ✓ src/__tests__/utils.test.ts         (25 tests) — Core Utilities
+ ✓ src/__tests__/validation.test.ts    (14 tests) — Zod Schemas
+ ✓ src/__tests__/data.test.ts          (13 tests) — Data Integrity
+ ✓ src/__tests__/languages.test.ts     (11 tests) — Translation Configuration
+ ✓ src/__tests__/gemini.test.ts        ( 9 tests) — AI Guardrails
+ ✓ src/__tests__/seo.test.ts           ( 8 tests) — PWA, JSON-LD, Robots
 
- Test Files:  5 passed (5)
- Tests:       106 passed (106)
- Duration:    5.16s
+ Test Files  11 passed (11)
+      Tests  259 passed (259)
 ```
 
 ### Test Categories
@@ -441,7 +446,7 @@ docker run -p 8080:8080 -e NEXT_PUBLIC_GEMINI_API_KEY=your_key votewise
 | **Scope** | Basic chatbot | 6 interactive tools in one platform |
 | **Interactivity** | Text Q&A only | EVM simulator, quiz with badges, readiness assessment |
 | **Google Services** | 1 (Gemini only) | 5 (Gemini + Maps + Translate + Analytics + Cloud Run) |
-| **Testing** | None | 106 passing tests across 5 test suites |
+| **Testing** | None | 259 passing tests across 11 test suites |
 | **Security** | Minimal | CSP headers, rate limiting, Zod validation, XSS sanitization |
 | **Accessibility** | Not considered | Full WCAG 2.1 AA with ARIA, `prefers-reduced-motion`, high-contrast |
 | **Code Quality** | JavaScript, no types | TypeScript strict mode, ESLint, Prettier, JSDoc |
