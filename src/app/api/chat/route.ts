@@ -14,7 +14,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getElectionAssistantModel } from "@/lib/gemini";
 import { chatMessageSchema } from "@/lib/validation";
-import { searchKnowledgeBase } from "@/data/knowledge-base";
+import { searchKnowledgeBase, getSmartFallback } from "@/data/knowledge-base";
 
 /**
  * Rate limiting configuration
@@ -124,23 +124,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Strategy 3: No match found — provide a helpful response
+    // Strategy 3: No match found — provide a helpful, context-aware response
     return NextResponse.json(
       {
-        response: `I appreciate your question! While I don't have a pre-built answer for that specific topic, here are some questions I can help with right away:
-
-🗳️ **Voter Registration** — "How do I register as a voter?"
-🖥️ **EVM & Voting** — "What is an EVM and how does it work?"
-📋 **Polling Day** — "What documents do I need on polling day?"
-⚖️ **Election Rules** — "Explain the Model Code of Conduct"
-🚫 **NOTA** — "What is NOTA and how does it work?"
-🔢 **Counting** — "How are votes counted in India?"
-🌟 **First-Time Voters** — "Tips for first-time voters"
-🏛️ **Election Commission** — "What does the Election Commission do?"
-🌍 **NRI Voting** — "How can NRIs vote?"
-♿ **Accessibility** — "Voting facilities for persons with disabilities"
-
-Try asking one of these, or explore the other interactive features on VoteWise! 🇮🇳`
+        response: getSmartFallback(message)
       },
       {
         status: 200,

@@ -17,6 +17,123 @@ export interface KnowledgeEntry {
 }
 
 /**
+ * Conversational response patterns for meta-questions, greetings, etc.
+ * These handle "Who are you?", "Hello", "Thanks" and similar non-election queries.
+ */
+export interface ConversationalPattern {
+  /** Patterns that trigger this response (checked via includes or regex) */
+  triggers: string[];
+  /** The response to give */
+  response: string;
+}
+
+export const CONVERSATIONAL_PATTERNS: ConversationalPattern[] = [
+  {
+    triggers: ["who are you", "what are you", "your name", "tell me about yourself", "introduce yourself"],
+    response: `🤖 **I'm VoteWise AI — your election education assistant!**
+
+I was built to help Indian citizens understand the democratic election process — from voter registration to vote counting.
+
+Here's what I can help you with:
+- 🗳️ **Voter registration** and eligibility
+- 🖥️ **How EVMs and VVPAT work**
+- 📋 **Polling day procedures** and documents
+- ⚖️ **Election rules** and the Model Code of Conduct
+- 🏛️ **Election Commission** powers and functions
+- 🌍 **NRI voting** rights
+- ♿ **Accessibility** for voters with disabilities
+- 🔢 **Vote counting** process
+- And much more!
+
+I'm powered by a comprehensive election knowledge base, designed to be **non-partisan, factual, and accessible**. Ask me anything about Indian elections! 🇮🇳`
+  },
+  {
+    triggers: ["hello", "hi ", "hey", "good morning", "good afternoon", "good evening", "namaste", "namaskar"],
+    response: `🙏 **Namaste! Welcome to VoteWise!**
+
+I'm your AI election education assistant. I'm here to help you understand India's democratic election process.
+
+You can ask me questions like:
+- "How do I register as a voter?"
+- "What is an EVM and how does it work?"
+- "What documents do I need on polling day?"
+- "Tips for first-time voters"
+
+Or explore any topic about Indian elections — I'm here to help! 🗳️`
+  },
+  {
+    triggers: ["thank", "thanks", "dhanyavaad", "shukriya", "appreciated"],
+    response: `🙏 **You're welcome!** Happy to help you learn about India's election process.
+
+Remember — an informed voter is an empowered voter! If you have more questions, don't hesitate to ask.
+
+*Every vote counts. Every voter matters.* 🇮🇳🗳️`
+  },
+  {
+    triggers: ["help", "what can you do", "what do you do", "how to use", "guide me"],
+    response: `📚 **Here's everything I can help you with:**
+
+**🗳️ Voting Basics:**
+- How to register as a voter
+- Required documents for polling day
+- Tips for first-time voters
+
+**🖥️ Technology:**
+- How EVMs (Electronic Voting Machines) work
+- VVPAT verification process
+
+**⚖️ Rules & Process:**
+- Model Code of Conduct
+- The 7-step election process
+- Vote counting procedures
+- NOTA (None of the Above)
+
+**🏛️ Institutions:**
+- Election Commission of India — powers and role
+- Political party registration
+
+**🌍 Special Voters:**
+- NRI voting rights
+- Accessibility for persons with disabilities
+
+**📍 Find Your Booth:**
+- How to locate your polling station
+
+Just type your question naturally — I'll find the best answer for you! 🎯`
+  },
+  {
+    triggers: ["bye", "goodbye", "see you", "exit", "quit"],
+    response: `👋 **Goodbye! Thanks for using VoteWise!**
+
+Remember to:
+✅ Register to vote if you haven't already
+✅ Check your polling booth before election day
+✅ Carry a valid photo ID on polling day
+
+*Democracy works best when every citizen participates. See you at the polls!* 🇮🇳🗳️`
+  },
+  {
+    triggers: ["votewise", "this app", "this platform", "this website", "who built", "who made", "who created"],
+    response: `🏆 **About VoteWise**
+
+VoteWise is an **AI-powered election education platform** built to make India's democratic process accessible to every citizen.
+
+**Key Features:**
+🤖 **AI Election Assistant** — Ask any question about elections (that's me!)
+📋 **Election Timeline** — Interactive 7-step process guide
+🧠 **Election Quiz** — Test your knowledge across 5 categories
+🗳️ **Mock EVM Simulator** — Practice voting before your first real vote
+📍 **Polling Station Finder** — Locate your nearest booth via Google Maps
+✅ **Voter Readiness Check** — Personalized assessment
+
+**Built with:**
+Google Gemini AI · Google Maps · Google Cloud Translation · Google Analytics · Google Cloud Run
+
+VoteWise was created by **Shreekumar Shah** for the PromptWars Virtual Challenge (Google for Developers × Hack2Skill). 🇮🇳`
+  },
+];
+
+/**
  * Comprehensive election education knowledge base.
  * Each entry contains keyword triggers and a detailed, non-partisan answer.
  */
@@ -402,8 +519,210 @@ Here's how to find your exact polling station:
 - Arrive early to avoid long queues (mornings are usually less crowded)
 
 *Know your booth, plan your visit, and make your vote count!* 🗳️`
+  },
+  {
+    keywords: ["lok sabha", "rajya sabha", "parliament", "lower house", "upper house", "mp", "member of parliament"],
+    answer: `🏛️ **Lok Sabha vs Rajya Sabha — India's Two Houses of Parliament**
+
+India's Parliament consists of **two houses**:
+
+**Lok Sabha (House of the People):**
+- **545 members** (543 elected + 2 nominated Anglo-Indians)
+- Members elected by **direct vote** of citizens
+- Term: **5 years** (unless dissolved earlier)
+- Presided over by the **Speaker**
+- Has greater power over **money bills**
+- The party/coalition with majority forms the **government**
+
+**Rajya Sabha (Council of States):**
+- **245 members** (233 elected + 12 nominated by President)
+- Members elected by **state legislators** (MLAs), not directly by citizens
+- **Permanent body** — never fully dissolved
+- One-third members retire every **2 years**
+- Each member serves a **6-year term**
+- Presided over by the **Vice President of India**
+
+**Key Differences:**
+| Feature | Lok Sabha | Rajya Sabha |
+|---------|-----------|-------------|
+| Election | Direct by citizens | By state MLAs |
+| Term | 5 years | 6 years |
+| Money Bills | Can introduce | Can only suggest |
+| No-Confidence Motion | Yes | No |
+
+*Both houses work together to make laws for the nation!* 🇮🇳`
+  },
+  {
+    keywords: ["ink", "indelible ink", "finger", "mark", "finger ink", "voting ink"],
+    answer: `✋ **Indelible Ink — The Mark of Democracy**
+
+The purple/black ink applied to voters' fingers is one of the most iconic symbols of Indian elections!
+
+**Key Facts:**
+- Made by **Mysore Paints and Varnish Limited (MPVL)** — the sole authorized manufacturer
+- Contains **silver nitrate** which bonds with skin cells
+- Applied to the **left index finger** (nail bed and cuticle)
+- Stays visible for **2-4 weeks**
+
+**Why It's Used:**
+- **Prevents repeat voting** — no one can vote twice
+- Acts as a **visual deterrent** against fraud
+- Easy to verify at polling stations
+
+**Fun Facts:**
+- India uses about **26 lakh (2.6 million) vials** of ink per general election
+- MPVL has been supplying ink since **1962**
+- The ink is exported to **25+ countries** for their elections
+- Even in the 2024 Lok Sabha elections, this simple technology remains irreplaceable
+
+*That ink mark on your finger? Wear it with pride — it's proof you participated in the world's largest democracy!* 🗳️✋`
+  },
+  {
+    keywords: ["phase", "phases", "multiple phases", "why phases", "schedule", "election dates", "staggered"],
+    answer: `📅 **Why Are Indian Elections Held in Multiple Phases?**
+
+Unlike most countries, India conducts elections in **multiple phases** spread over several weeks.
+
+**Reasons for Phased Voting:**
+
+1. **Security forces deployment** — India has 1 million+ polling stations. Central Armed Police Forces (CAPF) need to be redeployed between phases
+2. **Free and fair elections** — Security presence ensures no booth capturing or violence
+3. **Logistics** — Moving EVMs, VVPAT machines, and officials across a vast country takes time
+4. **Geography** — From Himalayan villages to remote islands, reaching every voter needs planning
+5. **Weather** — Avoiding extreme heat, monsoon, or snow in different regions
+
+**Scale of Indian Elections (2024):**
+- **7 phases** over 44 days
+- **969 million** eligible voters
+- **1.05 million** polling stations
+- **5.5 million** EVMs deployed
+- **15 million** election officials
+
+**How Phases Work:**
+- Each constituency votes on **one specific date**
+- Results for ALL constituencies are announced on the **same day**
+- This prevents early results from influencing later voters
+
+*Indian elections are the world's largest logistical operation — bigger than most military deployments!* 🇮🇳`
+  },
+  {
+    keywords: ["cvigil", "complaint", "report", "violation", "malpractice", "corrupt"],
+    answer: `📱 **cVIGIL — Report Election Violations**
+
+cVIGIL (Citizen Vigilance) is a **mobile app by the Election Commission of India** that lets citizens report election violations in real-time.
+
+**What You Can Report:**
+- 💰 **Cash distribution** or voter bribery
+- 🍺 **Liquor distribution** during dry days
+- 📢 **Loudspeaker misuse** during silence period
+- 🚫 **Defacement** of public property with campaign materials
+- ⚠️ **Intimidation** or threats to voters
+- 🚗 **Misuse** of government vehicles for campaigns
+
+**How It Works:**
+1. 📥 Download **cVIGIL** from Play Store / App Store
+2. 📸 Capture a **photo or video** of the violation
+3. 📍 The app automatically tags your **GPS location**
+4. 📤 Submit — your report reaches the **Flying Squad** within minutes
+5. 📋 Track the status with your **unique complaint ID**
+
+**Key Features:**
+- 🔒 **Anonymous reporting** — your identity is protected
+- ⏱️ **100-minute resolution** target for field units
+- 📊 Live dashboard for election officers
+- Works **only during election period** in your constituency
+
+*Be a vigilant citizen — if you see something wrong, report it!* 🛡️`
+  },
+  {
+    keywords: ["government formation", "who becomes pm", "prime minister", "coalition", "majority", "form government", "swearing in"],
+    answer: `🏛️ **Government Formation After Elections**
+
+After election results are declared, here's how the government is formed:
+
+**Step-by-Step Process:**
+
+**1. Results Declaration:**
+- The Election Commission declares results constituency by constituency
+- A party/coalition needs **272+ seats** (simple majority out of 543) to form the government
+
+**2. Single Party Majority:**
+- If one party wins 272+ seats, its leader is invited by the **President** to form the government
+- The leader becomes the **Prime Minister**
+
+**3. Coalition Government:**
+- If no single party gets 272+, the **largest party/pre-election coalition** gets first chance
+- They must prove majority on the **floor of the House** (trust vote)
+- Coalition partners sign a **Common Minimum Programme**
+
+**4. Swearing-In Ceremony:**
+- The PM and Council of Ministers take oath at **Rashtrapati Bhavan**
+- Administered by the **President of India**
+- The PM then allocates **ministerial portfolios**
+
+**5. Floor Test:**
+- The new government must prove majority in Lok Sabha
+- Done through a **trust vote** — all MPs vote for or against
+- If the government fails, the opposition may get a chance
+
+**Key Roles:**
+- **President** — Invites the leader to form government
+- **Prime Minister** — Head of government, chairs the Cabinet
+- **Speaker** — Elected to preside over Lok Sabha proceedings
+
+*The transfer of power in India is always peaceful and constitutional!* 🇮🇳`
+  },
+  {
+    keywords: ["vvpat", "paper trail", "paper slip", "verify vote", "verification"],
+    answer: `📄 **VVPAT — Voter Verifiable Paper Audit Trail**
+
+VVPAT is a **transparency device** attached to EVMs that lets voters verify their vote was recorded correctly.
+
+**How VVPAT Works:**
+1. You press the **blue button** for your chosen candidate on the EVM
+2. The VVPAT machine prints a **paper slip** showing:
+   - Candidate's **name**
+   - Party **symbol**
+   - Serial number
+3. The slip is displayed behind a **transparent window** for **7 seconds**
+4. You verify your vote was recorded correctly
+5. The slip automatically drops into a **sealed box**
+
+**Key Facts:**
+- Made **mandatory in all elections** by the Supreme Court in 2019
+- Manufactured by **BEL and ECIL** (same as EVMs)
+- Each VVPAT machine costs approximately **₹17,000**
+- **5 VVPAT machines per constituency** are randomly selected for paper trail verification during counting
+
+**Why VVPAT Matters:**
+- Provides a **physical paper backup** of electronic votes
+- Allows **independent verification** that EVMs are working correctly
+- Builds **public trust** in the electronic voting system
+- Any mismatch between EVM count and VVPAT count triggers investigation
+
+*VVPAT ensures your vote goes exactly where you intended — transparency guaranteed!* ✅`
   }
 ];
+
+/**
+ * Checks if the query matches a conversational pattern (greetings, identity, etc.)
+ *
+ * @param query - The user's message
+ * @returns A conversational response, or null if no pattern matches
+ */
+export function matchConversationalPattern(query: string): string | null {
+  const normalizedQuery = query.toLowerCase().trim();
+
+  for (const pattern of CONVERSATIONAL_PATTERNS) {
+    for (const trigger of pattern.triggers) {
+      if (normalizedQuery.includes(trigger.toLowerCase())) {
+        return pattern.response;
+      }
+    }
+  }
+
+  return null;
+}
 
 /**
  * Searches the knowledge base for a relevant answer using fuzzy keyword matching.
@@ -415,6 +734,13 @@ Here's how to find your exact polling station:
 export function searchKnowledgeBase(query: string): string | null {
   const normalizedQuery = query.toLowerCase().trim();
   
+  // Step 1: Check conversational patterns first
+  const conversationalMatch = matchConversationalPattern(normalizedQuery);
+  if (conversationalMatch) {
+    return conversationalMatch;
+  }
+
+  // Step 2: Search the election knowledge base
   let bestMatch: KnowledgeEntry | null = null;
   let bestScore = 0;
 
@@ -439,4 +765,78 @@ export function searchKnowledgeBase(query: string): string | null {
   }
   
   return null;
+}
+
+/**
+ * Gets a smart contextual fallback response based on the user's query.
+ * Instead of showing the same generic message, it analyzes the query and suggests
+ * the most relevant topics.
+ *
+ * @param query - The user's question
+ * @returns A helpful, context-aware fallback response
+ */
+export function getSmartFallback(query: string): string {
+  const normalizedQuery = query.toLowerCase();
+
+  // Detect broad topic categories and suggest relevant questions
+  if (normalizedQuery.includes("vote") || normalizedQuery.includes("ballot") || normalizedQuery.includes("election")) {
+    return `Great question about elections! While I don't have an exact answer for that, here are some related topics I can help with:
+
+🗳️ **"How do I register as a voter?"** — Complete registration guide
+🖥️ **"What is an EVM?"** — How voting machines work
+📄 **"What is VVPAT?"** — Paper trail verification
+🚫 **"What is NOTA?"** — Your right to reject all candidates
+📅 **"Why are elections held in phases?"** — India's unique multi-phase system
+🏛️ **"How is the government formed?"** — Post-election process
+
+Try one of these, or rephrase your question and I'll do my best! 🇮🇳`;
+  }
+
+  if (normalizedQuery.includes("law") || normalizedQuery.includes("rule") || normalizedQuery.includes("legal") || normalizedQuery.includes("constitution") || normalizedQuery.includes("right")) {
+    return `That sounds like a question about election laws and rights! Here are some topics I can help with:
+
+⚖️ **"Explain the Model Code of Conduct"** — Rules for parties and candidates
+🏛️ **"What does the Election Commission do?"** — Constitutional powers
+🏛️ **"Lok Sabha vs Rajya Sabha"** — How Parliament works
+📱 **"How to report election violations?"** — Using the cVIGIL app
+♿ **"Voting rights for persons with disabilities"** — Accessibility provisions
+
+Try asking one of these! 🇮🇳`;
+  }
+
+  if (normalizedQuery.includes("how") || normalizedQuery.includes("what") || normalizedQuery.includes("why") || normalizedQuery.includes("where") || normalizedQuery.includes("when")) {
+    return `I'd love to help! I specialize in **Indian election education**. Here are the topics I know best:
+
+**Getting Started:**
+🗳️ "How do I register as a voter?"
+🌟 "Tips for first-time voters"
+📋 "What documents do I need on polling day?"
+
+**Understanding the Process:**
+🖥️ "How does an EVM work?"
+🔢 "How are votes counted?"
+📅 "Why are elections in phases?"
+🏛️ "How is the government formed?"
+
+**Your Rights:**
+🚫 "What is NOTA?"
+🌍 "How can NRIs vote?"
+♿ "Accessible voting for PwD"
+📱 "How to report violations (cVIGIL)?"
+
+Pick any topic above, or ask me something related to Indian elections! 🎯`;
+  }
+
+  // Default fallback — still helpful but shorter than before
+  return `I'm VoteWise AI — I specialize in **Indian election education**! 🗳️
+
+I can answer questions about voter registration, EVMs, polling day procedures, NOTA, election counting, the Election Commission, NRI voting, and much more.
+
+**Try asking:**
+• "How do I register as a voter?"
+• "What is an EVM and how does it work?"
+• "Tips for first-time voters"
+• "How is the government formed after elections?"
+
+Ask me anything about Indian elections! 🇮🇳`;
 }
