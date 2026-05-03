@@ -8,6 +8,8 @@
 
 "use client";
 
+import Link from "next/link";
+
 /**
  * Error boundary component.
  * Catches React rendering errors and provides a recovery mechanism.
@@ -54,13 +56,13 @@ export default function Error({
           <span aria-hidden="true">🔄</span>
           Try Again
         </button>
-        <a
+        <Link
           href="/"
           className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-semibold rounded-xl border border-white/10 transition-all duration-200 hover:scale-105 focus-visible:ring-2 focus-visible:ring-white/50"
         >
           <span aria-hidden="true">🏠</span>
           Back to Home
-        </a>
+        </Link>
       </div>
 
       {/* Error reference for support — Security: Only digest, not full trace */}

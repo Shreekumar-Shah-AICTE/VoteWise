@@ -7,7 +7,7 @@
 
 "use client";
 
-import { useState, useMemo, useCallback, useEffect } from "react";
+import { useState, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { quizQuestions } from "@/data/quiz-questions";
 import { shuffleArray, getDifficultyColor } from "@/lib/utils";
@@ -31,7 +31,11 @@ export default function QuizPage() {
   }, [answered, q]);
 
   const handleNext = useCallback(() => {
-    if (idx + 1 >= shuffledQuestions.length) { setDone(true); return; }
+    if (idx + 1 >= shuffledQuestions.length) { 
+      setDone(true); 
+      setShowToast(true);
+      return; 
+    }
     setIdx((i) => i + 1);
     setSelected(null);
     setAnswered(false);
@@ -45,11 +49,6 @@ export default function QuizPage() {
     : pct >= 50 ? { e: "📚", t: "Active Learner", c: "text-blue-400" }
     : { e: "🌱", t: "Civic Explorer", c: "text-gray-400" };
 
-  useEffect(() => {
-    if (done) {
-      setShowToast(true);
-    }
-  }, [done]);
 
   if (done) return (
     <main id="main-content" className="min-h-screen flex items-center justify-center px-4">

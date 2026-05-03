@@ -14,7 +14,7 @@ describe("SEO and Production Signals", () => {
   const readFile = (dirPath: string, fileName: string) => {
     try {
       return fs.readFileSync(path.join(dirPath, fileName), "utf-8");
-    } catch (e) {
+    } catch {
       return null;
     }
   };

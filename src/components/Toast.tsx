@@ -26,7 +26,7 @@ export default function Toast({
 
   useEffect(() => {
     if (isVisible) {
-      setShouldRender(true);
+      setTimeout(() => setShouldRender(true), 0);
       const timer = setTimeout(() => {
         onClose();
       }, duration);

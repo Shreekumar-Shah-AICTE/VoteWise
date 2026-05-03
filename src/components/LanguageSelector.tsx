@@ -30,12 +30,12 @@ export default function LanguageSelector() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    setTimeout(() => setMounted(true), 0);
     // On mount, check if there's a stored language preference
     const stored = localStorage.getItem("votewise_lang");
-    if (stored && SUPPORTED_LANGUAGE_CODES.includes(stored as any)) {
-      setCurrentLang(stored);
-      document.documentElement.lang = stored;
+    if (stored && (SUPPORTED_LANGUAGE_CODES as readonly string[]).includes(stored)) {
+      setTimeout(() => setCurrentLang(stored), 0);
+      document.documentElement.setAttribute("lang", stored);
     }
   }, []);
 
@@ -44,7 +44,7 @@ export default function LanguageSelector() {
     setIsOpen(false);
     
     // Update document language for screen readers (A11y)
-    document.documentElement.lang = code;
+    document.documentElement.setAttribute("lang", code);
     
     // Store preference
     localStorage.setItem("votewise_lang", code);

@@ -15,7 +15,7 @@ describe("Pages: Structure and Accessibility", () => {
   const readPage = (routePath: string) => {
     try {
       return fs.readFileSync(path.join(pagesDir, routePath), "utf-8");
-    } catch (e) {
+    } catch {
       return null;
     }
   };
