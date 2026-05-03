@@ -5,6 +5,11 @@
  * Google Services: Google Fonts (Inter), Google Analytics 4 (gtag.js)
  * A11y: Sets lang attribute, loads accessible fonts, skip-nav link
  * SEO: Comprehensive metadata for search engines and social sharing
+ *
+ * @author Shreekumar Shah <parzivalarts@gmail.com>
+ * @project VoteWise — AI-Powered Election Education Platform
+ * @deployment https://votewise-1020647632294.us-central1.run.app
+ * @repository https://github.com/Shreekumar-Shah-AICTE/VoteWise
  */
 
 import type { Metadata, Viewport } from "next";
@@ -78,6 +83,11 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
+        {/* Authorship & Attribution */}
+        <meta name="author" content="Shreekumar Shah" />
+        <meta name="creator" content="Shreekumar Shah — Kaushalya, The Skill University" />
+        <meta name="publisher" content="Shreekumar Shah (parzivalarts@gmail.com)" />
+
         {/* SEO: JSON-LD Structured Data for rich search results */}
         <script
           type="application/ld+json"
@@ -88,12 +98,14 @@ export default function RootLayout({
               name: "VoteWise",
               description:
                 "AI-Powered Interactive Election Education Platform for India",
-              url: "https://votewise.app",
+              url: "https://votewise-1020647632294.us-central1.run.app",
               applicationCategory: "EducationalApplication",
               operatingSystem: "All",
               author: {
                 "@type": "Person",
                 name: "Shreekumar Shah",
+                email: "parzivalarts@gmail.com",
+                url: "https://github.com/Shreekumar-Shah-AICTE",
               },
               offers: {
                 "@type": "Offer",

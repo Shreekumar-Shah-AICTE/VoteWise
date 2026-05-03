@@ -3,8 +3,30 @@
   "version": "1.0.0",
   "private": true,
   "description": "AI-Powered Interactive Election Education Platform — VoteWise helps users understand India's election process through an AI assistant, interactive quizzes, mock voting simulator, and multi-language support.",
-  "author": "Shreekumar Shah <parzivalarts@gmail.com>",
+  "author": {
+    "name": "Shreekumar Shah",
+    "email": "parzivalarts@gmail.com",
+    "url": "https://github.com/Shreekumar-Shah-AICTE"
+  },
   "license": "MIT",
+  "homepage": "https://votewise-1020647632294.us-central1.run.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shreekumar-Shah-AICTE/VoteWise.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Shreekumar-Shah-AICTE/VoteWise/issues"
+  },
+  "keywords": [
+    "election-education",
+    "india-democracy",
+    "google-gemini-ai",
+    "google-cloud-run",
+    "promptwars",
+    "voter-awareness",
+    "nextjs",
+    "typescript"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",

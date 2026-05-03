@@ -7,6 +7,8 @@
  * Security: Input validation with Zod, rate limiting headers
  *
  * @route POST /api/chat
+ * @author Shreekumar Shah <parzivalarts@gmail.com>
+ * @project VoteWise — PromptWars Challenge 2
  */
 
 import { NextRequest, NextResponse } from "next/server";

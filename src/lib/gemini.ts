@@ -4,6 +4,10 @@
  * with election-specific system instructions
  *
  * @module lib/gemini
+ * @author Shreekumar Shah <parzivalarts@gmail.com>
+ * @project VoteWise — AI-Powered Election Education Platform
+ * @see https://github.com/Shreekumar-Shah-AICTE/VoteWise
+ * @license MIT
  */
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
