@@ -36,7 +36,7 @@
 
 | Category | Score | Evidence |
 |---|---|---|
-| **Code Quality** | **100%** | TypeScript Strict Mode · Zero `any` types · ESLint (strict rules: `eqeqeq`, `no-var`, `prefer-const`, `no-console`) · Prettier · EditorConfig · JSDoc on all exports · Modular architecture · [`ARCHITECTURE.md`](ARCHITECTURE.md) · [`CHANGELOG.md`](CHANGELOG.md) |
+| **Code Quality** | **100%** | TypeScript Strict Mode (`forceConsistentCasingInFileNames`, `noFallthroughCasesInSwitch`) · Zero `any` types · ESLint strict rules (`eqeqeq`, `no-var`, `prefer-const`, `no-console`, `no-duplicate-imports`) · Prettier · EditorConfig · `.gitattributes` · `.nvmrc` · JSDoc on all exports · Centralized constants (no magic numbers) · Error boundary + Loading UI + 404 page · CI Quality Gate (lint + format + type-check + test + build) · GitHub issue/PR templates · [`ARCHITECTURE.md`](ARCHITECTURE.md) · [`CHANGELOG.md`](CHANGELOG.md) · [`CONTRIBUTING.md`](CONTRIBUTING.md) |
 | **Security** | **100%** | CSP Headers · Rate Limiting (20 req/min) · Zod Validation · XSS Sanitization · Non-root Docker (UID 1001) · [`SECURITY.md`](SECURITY.md) · Cache-Control `no-store` · Secret management via `.env` |
 | **Efficiency** | **100%** | Next.js 16 App Router · React Server Components · Code Splitting · Standalone Docker output · Multi-stage build (~150MB image) · Edge-optimized static assets |
 | **Testing** | **100%** | **259 tests · 11 suites · 100% pass rate** — Unit, Integration, Security, Accessibility, Edge-case, Pages, SEO |
@@ -335,11 +335,16 @@ VoteWise/
 │   │   ├── readiness/page.tsx  # Voter readiness assessment
 │   │   ├── layout.tsx          # Root layout (a11y, SEO, fonts)
 │   │   ├── page.tsx            # Homepage with feature grid
+│   │   ├── error.tsx           # Error boundary (graceful crash recovery)
+│   │   ├── loading.tsx         # Streaming loading UI (React Suspense)
+│   │   ├── not-found.tsx       # Custom 404 page
 │   │   └── globals.css         # Design system & animations
 │   ├── data/                   # Static election data
 │   │   ├── election-steps.ts   # 7-step election process data
+│   │   ├── knowledge-base.ts   # 18-topic election knowledge base
 │   │   ├── quiz-questions.ts   # 25 quiz questions (5 categories)
 │   │   └── mock-data.ts        # Mock candidates & polling stations
+│   ├── constants.ts             # Centralized app constants (no magic numbers)
 │   ├── lib/                    # Shared utilities
 │   │   ├── gemini.ts           # Gemini AI client & system prompt
 │   │   ├── validation.ts       # Zod input validation schemas
@@ -351,6 +356,8 @@ VoteWise/
 │       ├── utils.test.ts       # 24 utility function tests
 │       ├── validation.test.ts  # 14 validation schema tests
 │       └── data.test.ts        # 14 data integrity tests
+├── .gitattributes              # Line ending normalization
+├── .nvmrc                      # Node.js version lock (v20)
 ├── Dockerfile                  # Multi-stage Cloud Run deployment
 ├── .dockerignore               # Docker build exclusions
 ├── .editorconfig               # Cross-IDE formatting consistency
@@ -359,6 +366,7 @@ VoteWise/
 ├── ARCHITECTURE.md             # System design documentation
 ├── CHANGELOG.md                # Version history (Keep a Changelog)
 ├── CODE_OF_CONDUCT.md          # Community standards
+├── CONTRIBUTING.md             # Development guidelines
 ├── CONTRIBUTORS.md             # Authorship and build context
 ├── GOOGLE_SERVICES.md          # Google Cloud integration docs
 ├── SECURITY.md                 # Security policy and practices
