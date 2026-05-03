@@ -8,8 +8,10 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Gemini AI](https://img.shields.io/badge/Gemini_AI-Powered-4285F4?style=for-the-badge&logo=google&logoColor=white)](https://ai.google.dev/)
 [![Google Maps](https://img.shields.io/badge/Google_Maps-Integrated-34A853?style=for-the-badge&logo=googlemaps&logoColor=white)](https://developers.google.com/maps)
+[![Google Analytics](https://img.shields.io/badge/Google_Analytics-4-F9AB00?style=for-the-badge&logo=googleanalytics&logoColor=white)](https://analytics.google.com/)
 [![Cloud Run](https://img.shields.io/badge/Cloud_Run-Deployed-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white)](https://cloud.google.com/run)
-[![Tests](https://img.shields.io/badge/Tests-72_Passing-22C55E?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev/)
+[![Tests](https://img.shields.io/badge/Tests-106_Passing-22C55E?style=for-the-badge&logo=vitest&logoColor=white)](https://vitest.dev/)
+[![Accessibility](https://img.shields.io/badge/A11y-WCAG_2.1_AA-8B5CF6?style=for-the-badge&logo=w3c&logoColor=white)](#)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
 **Your interactive guide to understanding India's democratic election process — learn, quiz yourself, and experience mock voting.**
