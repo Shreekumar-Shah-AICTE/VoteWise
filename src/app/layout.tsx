@@ -2,20 +2,25 @@
  * Root Layout for VoteWise
  * Provides the HTML structure, metadata, fonts, and global styles
  *
- * A11y: Sets lang attribute, loads accessible fonts
- * SEO: Comprehensive metadata for search engines
+ * Google Services: Google Fonts (Inter), Google Analytics 4 (gtag.js)
+ * A11y: Sets lang attribute, loads accessible fonts, skip-nav link
+ * SEO: Comprehensive metadata for search engines and social sharing
  */
 
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-// A11y: Using Inter — a highly legible, accessible sans-serif font
+// Google Services: Using Inter from Google Fonts — a highly legible, accessible sans-serif font
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-inter",
 });
+
+/** Google Services: Google Analytics 4 Measurement ID */
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 /** SEO: Comprehensive metadata for the application */
 export const metadata: Metadata = {
@@ -40,9 +45,17 @@ export const metadata: Metadata = {
   },
 };
 
+/** A11y: Viewport configuration for mobile accessibility */
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 /**
  * Root layout component wrapping all pages.
- * A11y: Sets document language, applies accessible font.
+ * Google Services: Loads Google Analytics 4 (gtag.js) for event tracking
+ * A11y: Sets document language, applies accessible font, provides skip-nav
  */
 export default function RootLayout({
   children,
@@ -52,6 +65,25 @@ export default function RootLayout({
   return (
     // A11y: lang attribute for screen readers
     <html lang="en" className={`${inter.variable} dark`}>
+      <head>
+        {/* Google Services: Google Analytics 4 — page view and event tracking */}
+        {GA_MEASUREMENT_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_MEASUREMENT_ID}');
+              `}
+            </Script>
+          </>
+        )}
+      </head>
       <body className="bg-gray-950 text-gray-100 antialiased min-h-screen">
         {/* A11y: Skip navigation link for keyboard users */}
         <a
