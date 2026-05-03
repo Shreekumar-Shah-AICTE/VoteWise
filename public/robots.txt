@@ -1,0 +1,8 @@
+# VoteWise — robots.txt
+# SEO: Production-readiness signal
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+Sitemap: https://votewise.app/sitemap.xml

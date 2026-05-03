@@ -66,6 +66,39 @@ export default function RootLayout({
     // A11y: lang attribute for screen readers
     <html lang="en" className={`${inter.variable} dark`}>
       <head>
+        {/* PWA: Web App Manifest for installability */}
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#6366f1" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        {/* SEO: JSON-LD Structured Data for rich search results */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              name: "VoteWise",
+              description:
+                "AI-Powered Interactive Election Education Platform for India",
+              url: "https://votewise.app",
+              applicationCategory: "EducationalApplication",
+              operatingSystem: "All",
+              author: {
+                "@type": "Person",
+                name: "Shreekumar Shah",
+              },
+              offers: {
+                "@type": "Offer",
+                price: "0",
+                priceCurrency: "INR",
+              },
+              inLanguage: ["en", "hi", "gu", "ta", "te", "bn", "mr", "kn"],
+            }),
+          }}
+        />
+
         {/* Google Services: Google Analytics 4 — page view and event tracking */}
         {GA_MEASUREMENT_ID && (
           <>
